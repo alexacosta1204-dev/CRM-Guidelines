@@ -103,6 +103,36 @@
   section.screen{display:none;}
   section.screen.active{display:block;}
 
+
+  /* ---------- Pipeline & Card Guide ---------- */
+  .flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:16px 0 8px;}
+  .flow-card{background:#fff;border:1px solid var(--border);border-top:4px solid var(--blue);border-radius:12px;padding:18px 18px 12px;}
+  .flow-card p{margin:0 0 10px;color:var(--ink-soft);font-size:14px;}
+  .flow-card ul{margin:10px 0 0;padding-left:18px;}
+  .flow-card li{font-size:14px;margin-bottom:6px;}
+  .flow-head{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--navy-deep);font-size:16px;margin-bottom:8px;}
+  .flow-icon{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto;}
+  .flow-dest{background:rgba(24,84,168,0.07);border-radius:8px;padding:8px 10px;font-size:13.5px;color:var(--navy);}
+  .lane{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:16px 0;}
+  .lane-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+  .lane-head h3{margin:0;color:var(--navy-deep);font-size:17px;}
+  .lane-who{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--silver);}
+  .lane-stages{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .chip{display:inline-flex;align-items:center;background:var(--silver-light);color:var(--navy);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600;position:relative;}
+  .lane-stages .chip:not(:last-child)::after{content:"→";color:var(--silver);margin-left:10px;font-weight:700;}
+  .chip-good{background:rgba(46,140,87,0.12);color:#1F6B43;}
+  .chip-warn{background:rgba(199,168,94,0.18);color:#7A5A12;}
+  .lane-note{margin:12px 0 0;font-size:14px;color:var(--ink-soft);}
+  ol.steps{counter-reset:step;list-style:none;padding-left:0;margin:12px 0 16px;}
+  ol.steps li{counter-increment:step;position:relative;padding:8px 0 8px 40px;border-bottom:1px solid var(--border);}
+  ol.steps li:last-child{border-bottom:none;}
+  ol.steps li::before{content:counter(step);position:absolute;left:0;top:7px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;}
+  .tab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:12px 0;}
+  .tab-grid .field-group{margin:0;}
+  ul.field-list{margin:6px 0 0;padding-left:18px;}
+  ul.field-list li{font-size:14px;margin-bottom:4px;}
+  article.doc a{cursor:pointer;}
+
   /* ---------- Hub ---------- */
   .hub-hero{
     padding:56px 0 36px;
@@ -544,6 +574,7 @@
     </div>
     <nav class="header-nav">
       <button data-target="hub" onclick="showScreen('hub')">Hub</button>
+      <button data-target="pipeline" onclick="showScreen('pipeline')">Pipelines</button>
       <button data-target="tagging" onclick="showScreen('tagging')">Tagging</button>
       <button data-target="sourcing" onclick="showScreen('sourcing')">Sourcing</button>
       <button data-target="eam" onclick="showScreen('eam')">EAM/LO Checklist</button>
@@ -562,6 +593,16 @@
     </div>
 
     <div class="card-grid">
+      <div class="guide-card" onclick="showScreen('pipeline')">
+        <div class="icon-badge">P</div>
+        <div>
+          <span class="meta-tag">Pipelines &amp; Opportunities</span>
+          <h3>Pipeline &amp; Card Guide</h3>
+        </div>
+        <p>Where website, Booking Hub, booking link, and manual leads land; how cards move through the three pipelines; the Phase tab; and which fields to fill.</p>
+        <span class="read-more">Read guideline →</span>
+      </div>
+
       <div class="guide-card" onclick="showScreen('tagging')">
         <div class="icon-badge">T</div>
         <div>
@@ -594,11 +635,291 @@
     </div>
 
     <div class="hub-footnote">
-      <strong>New to the CRM?</strong> Start with Tagging and Sourcing — nearly every contact and opportunity you touch depends on both being filled in correctly. The EAM/LO Checklist builds on both, so read it last.
+      <strong>New to the CRM?</strong> Start with the Pipeline &amp; Card Guide to see how a client moves from first contact to closing. Then read Tagging and Sourcing — nearly every contact and opportunity you touch depends on both being filled in correctly. The EAM/LO Checklist builds on both, so read it last.
     </div>
   </section>
 
   <!-- ================= TAGGING ================= -->
+  <!-- ================= PIPELINE & CARD GUIDE ================= -->
+  <section class="screen" id="screen-pipeline">
+    <div class="article-header">
+      <button class="back-link" onclick="showScreen('hub')">← Back to Guidelines Hub</button>
+      <div class="article-kicker">Pipelines &amp; Opportunities · GoHighLevel</div>
+      <h1>Pipeline &amp; Card Guide</h1>
+      <p class="subtitle">Where leads land, how cards move, and what to fill in</p>
+    </div>
+
+    <div class="article-lede">
+      Every client has one opportunity card. The card starts in a <strong>1st Contact</strong> stage, moves through either the <strong>10Yi Buying Power</strong> or the <strong>Pre Approval (No 10Yi)</strong> pipeline, and finishes in the <strong>Active Loan Pipeline</strong>. Your job is to keep the card in the right stage and fill in every field you have information for.
+    </div>
+
+    <article class="doc">
+
+      <h2><span class="num">1</span>How a Lead Gets Into the CRM</h2>
+      <p>There are four ways a new lead shows up. Each one starts the card in a specific place.</p>
+
+      <div class="flow-grid">
+        <div class="flow-card">
+          <div class="flow-head"><span class="flow-icon">W</span>Website form</div>
+          <p>A client fills out the form on the 10Yi website.</p>
+          <div class="flow-dest">Lands in: <strong>10Yi Buying Power → 1ST Contact 24Hrs</strong></div>
+          <ul>
+            <li>The card is created automatically. Its name ends in <em>"- 10Yi Website"</em>.</li>
+            <li>Source is filled in automatically as <strong>10Yi Site</strong>.</li>
+            <li>Call the client within 24 hours and book the 20-minute intro.</li>
+          </ul>
+        </div>
+
+        <div class="flow-card">
+          <div class="flow-head"><span class="flow-icon">B</span>10Yi Booking Hub form</div>
+          <p>A team member books a client with an EAM using the Booking Hub link.</p>
+          <div class="flow-dest">Lands in: <strong>10Yi Buying Power → 1ST Contact 24Hrs</strong></div>
+          <ul>
+            <li>The card is created automatically and assigned to the EAM chosen on the form.</li>
+            <li>Source is filled in automatically. If an EAM booked their own lead, change it as the <a onclick="showScreen('sourcing')">Sourcing Guidelines</a> explain.</li>
+            <li>Fill in the <strong>Booking Date</strong> and move the card to <strong>20 Min Intro Meeting</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="flow-card">
+          <div class="flow-head"><span class="flow-icon">L</span>EAM booking link</div>
+          <p>The client books a 20-minute call directly on an EAM's calendar.</p>
+          <div class="flow-dest">Moves to: <strong>10Yi Buying Power → 20 Min Intro Meeting</strong></div>
+          <ul>
+            <li>If the client's card is sitting in 1ST Contact, it moves to 20 Min Intro Meeting when they book.</li>
+            <li>If it didn't move, move it yourself and fill in the <strong>Booking Date</strong>.</li>
+            <li>If the client has no card yet, create one (see Manual entry).</li>
+          </ul>
+        </div>
+
+        <div class="flow-card">
+          <div class="flow-head"><span class="flow-icon">M</span>Manual entry</div>
+          <p>Phone calls, referrals, events, or anyone you add yourself with <strong>+ Add opportunity</strong>.</p>
+          <div class="flow-dest">Lands in: <strong>the first stage of the right pipeline</strong></div>
+          <ul>
+            <li><strong>10Yi client</strong> → 10Yi Buying Power → 1ST Contact 24Hrs.</li>
+            <li><strong>Not 10Yi (traditional purchase or refi)</strong> → Pre Approval (No 10Yi) → 1ST Contact.</li>
+            <li>Already booked for the 20-minute intro → start it in 20 Min Intro Meeting.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Every card needs an Owner</div>
+        <p>Set the Owner as soon as the card exists. A card with no owner sends an alert to the CRM admin.</p>
+        <p class="callout-sub">The Owner is the team member who brought in the lead. Add the EAM as a Follower so they see it too.</p>
+      </div>
+
+      <h2><span class="num">2</span>The Three Pipelines</h2>
+      <p>Cards move left to right. The time in a stage name is how fast the card should move out of that stage.</p>
+
+      <div class="lane">
+        <div class="lane-head">
+          <h3>10Yi Buying Power</h3>
+          <span class="lane-who">Worked by the EAM</span>
+        </div>
+        <div class="lane-stages">
+          <span class="chip">1ST Contact 24Hrs</span>
+          <span class="chip">20 Min Intro Meeting</span>
+          <span class="chip">Gathering Docs 1-3 Days</span>
+          <span class="chip">10Yi-Under Analysis 24-48Hrs</span>
+          <span class="chip">10Yi Outcome 24-48Hrs</span>
+          <span class="chip">10Yi Implementation</span>
+          <span class="chip">Buying Power Letter</span>
+        </div>
+        <p class="lane-note">For 10Yi clients. When the card reaches Outcome, the Outcome Date and 10YI Strategy must be filled in. The CRM reminds the owner and EAM if they're still blank a business day later.</p>
+      </div>
+
+      <div class="lane">
+        <div class="lane-head">
+          <h3>Pre Approval (No 10Yi)</h3>
+          <span class="lane-who">Worked by the EAM</span>
+        </div>
+        <div class="lane-stages">
+          <span class="chip">1ST Contact</span>
+          <span class="chip">Gathering Docs 1-3 Days</span>
+          <span class="chip">Analysis for PAL</span>
+          <span class="chip">PAL Issued 60 Days</span>
+          <span class="chip chip-warn">PAL Overdue</span>
+        </div>
+        <p class="lane-note">For clients who are not 10Yi. A pre-approval letter (PAL) is good for 60 days. At day 45 the owner and EAM get a reminder. At day 60 the card moves to <strong>PAL Overdue</strong> automatically: re-qualify the client, update the letter, or close the card.</p>
+      </div>
+
+      <div class="lane">
+        <div class="lane-head">
+          <h3>Active Loan Pipeline</h3>
+          <span class="lane-who">Worked by the Analyst / LO</span>
+        </div>
+        <div class="lane-stages">
+          <span class="chip">A. Contract/Refi/HELOC 24hrs</span>
+          <span class="chip">B. Opening/Processing 24hrs</span>
+          <span class="chip">C. Underwriting 2 Touches</span>
+          <span class="chip">D. Clear to Close</span>
+          <span class="chip chip-good">E. Closed</span>
+          <span class="chip chip-warn">Withdrawn/Denied/Cancelled</span>
+        </div>
+        <p class="lane-note">Every client ends up here once they have a contract, refi, or HELOC in motion. Moving a card to <strong>E. Closed</strong> marks it Won; moving it to <strong>Withdrawn/Denied/Cancelled</strong> marks it Lost.</p>
+      </div>
+
+      <h3>How long a card should sit in a stage</h3>
+      <div class="table-wrap">
+        <table class="def-table">
+          <thead><tr><th>Stage label</th><th>Counts as</th><th>What happens if it sits too long</th></tr></thead>
+          <tbody>
+            <tr><td class="term">24Hrs / 24-48Hrs</td><td>3 business days</td><td>The owner (and the EAM in 10Yi Buying Power and Pre Approval) gets an alert to follow up or move the card.</td></tr>
+            <tr><td class="term">1-3 Days</td><td>5 business days</td><td>Same alert after 5 business days.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Business days skip weekends. A card that enters a 24Hrs stage on Wednesday is due by the next Monday; one that enters on Monday is due by Thursday.</p>
+
+      <h2><span class="num">3</span>Moving a Card to the Active Loan Pipeline — the Phase Tab</h2>
+      <p>You don't drag a card into the Active Loan Pipeline. You tell the CRM it's ready, and it moves the card for you.</p>
+
+      <ol class="steps">
+        <li>Open the opportunity card.</li>
+        <li>Click the <strong>Phase</strong> tab.</li>
+        <li>Under <strong>Pipeline Completion</strong>, check <strong>Ready For Active Loan Pipeline</strong>.</li>
+        <li>Click <strong>Update</strong>.</li>
+      </ol>
+      <div class="example-card">
+        <div class="ex-label">What happens next</div>
+        <p>The card moves to <strong>Active Loan Pipeline → A. Contract/Refi/HELOC 24hrs</strong> automatically. From there the Analyst / LO moves it forward.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Before you check the box</div>
+        <p>Check it only when the client has a contract, refi, or HELOC ready to start.</p>
+        <p class="callout-sub">Make sure the <strong>Loan Information</strong> tab (including LOAN ID#) and the <strong>Loan Officer</strong> and <strong>Equity Asset Analyst</strong> in Team Information are filled in first, so the next person has everything they need.</p>
+      </div>
+
+      <h2><span class="num">4</span>Fill In Every Field You Have Information For</h2>
+      <p>If you know it, fill it in. Leave a field blank only when the information doesn't exist yet, and come back when it does. Click <strong>Update</strong> before switching tabs; switching tabs throws away unsaved changes.</p>
+
+      <div class="tab-grid">
+        <div class="field-group">
+          <h3>Opportunity details</h3>
+          <ul class="field-list">
+            <li>Primary contact (the borrower), email, phone</li>
+            <li>Additional contacts (spouse, co-borrower, helper)</li>
+            <li>Opportunity name: the client's full name</li>
+            <li>Pipeline, Stage, Status, Value</li>
+            <li>Owner and Followers</li>
+            <li>Source and Source Detail</li>
+            <li>Opportunity Type (New / Existing Business)</li>
+            <li>Event Information, Close Date</li>
+            <li>Comments/Notes, Tags</li>
+          </ul>
+        </div>
+
+        <div class="field-group">
+          <h3>Team Information</h3>
+          <ul class="field-list">
+            <li>Equity Asset Manager (EAM)</li>
+            <li>Business Developer (BDO)</li>
+            <li>Equity Asset Analyst (EAA)</li>
+            <li>Loan Officer (LO)</li>
+            <li>Realtor</li>
+            <li>Referral (Other than Realtor)</li>
+            <li>Builder/Developer</li>
+            <li>Followers</li>
+          </ul>
+        </div>
+
+        <div class="field-group">
+          <h3>10Yi Program Information</h3>
+          <ul class="field-list">
+            <li>10Yi (Yes/No): never blank</li>
+            <li>Booking Date (20-minute intro)</li>
+            <li>Outcome Date</li>
+            <li>10YI Strategy</li>
+            <li>Lennar Prospect?</li>
+            <li>10Yi Implementation + Buying Power Letter (upload)</li>
+          </ul>
+        </div>
+
+        <div class="field-group">
+          <h3>Loan Information</h3>
+          <ul class="field-list">
+            <li>LOAN ID# (copy from Arive)</li>
+            <li>Loan Type, Loan Purpose</li>
+            <li>Type of Property, Occupancy</li>
+            <li>Street No. / #Unit No.</li>
+            <li>Est. Credit Score, Est. LTV, Current Rate</li>
+            <li>Yrs with Current Employment</li>
+            <li>Loan Inquiry Form (upload)</li>
+          </ul>
+        </div>
+
+        <div class="field-group">
+          <h3>Buddy System Info</h3>
+          <ul class="field-list">
+            <li>Weakness (checkboxes)</li>
+            <li>How the Area of Weakness will be resolved? (POA)</li>
+            <li>By when POA will be accomplished?</li>
+            <li>Confirmed Buddy System by Manager (manager only)</li>
+          </ul>
+        </div>
+
+        <div class="field-group">
+          <h3>Phase &amp; Notes</h3>
+          <ul class="field-list">
+            <li>Phase → Pipeline Completion (see section 3)</li>
+            <li>Notes tab: every update about the client, dated, with what happens next</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Checkboxes</h3>
+      <div class="table-wrap">
+        <table class="def-table">
+          <thead><tr><th>Checkbox</th><th>Tab</th><th>How to use it</th></tr></thead>
+          <tbody>
+            <tr><td class="term">Weakness: Income / Assets / Credit / Legal Status / Other</td><td>Buddy System Info</td><td>Check every area that is holding the client back. More than one can apply. Then fill in the POA and its date.</td></tr>
+            <tr><td class="term">Confirmed Buddy System by Manager: Valid / Incomplete / Misclassified</td><td>Buddy System Info</td><td>Manager only. Confirms whether the client really belongs in the Buddy System.</td></tr>
+            <tr><td class="term">Ready For Active Loan Pipeline</td><td>Phase</td><td>Moves the card to the Active Loan Pipeline. Check it only when the client is ready (section 3).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2><span class="num">5</span>Source Points to a Team Information Field</h2>
+      <p><strong>Source</strong> says what kind of lead it is. The matching field says <em>who</em>. Every time you choose a Source, fill in the field it points to. Never type a person's name in Source.</p>
+
+      <div class="table-wrap">
+        <table class="def-table">
+          <thead><tr><th>If Source is…</th><th>Fill in this field</th><th>Where</th></tr></thead>
+          <tbody>
+            <tr><td class="term">EAM / EAM-Form</td><td>Equity Asset Manager (EAM)</td><td>Team Information</td></tr>
+            <tr><td class="term">BDO / BDO-Form</td><td>Business Developer (BDO)</td><td>Team Information</td></tr>
+            <tr><td class="term">LO</td><td>Loan Officer (LO)</td><td>Team Information</td></tr>
+            <tr><td class="term">Realtor</td><td>Realtor (name and company)</td><td>Team Information</td></tr>
+            <tr><td class="term">Past Client</td><td>Referral (Other than Realtor): the past client's name</td><td>Team Information</td></tr>
+            <tr><td class="term">Business Partner</td><td>Referral (Other than Realtor): person and company</td><td>Team Information</td></tr>
+            <tr><td class="term">Builder</td><td>Builder/Developer</td><td>Team Information</td></tr>
+            <tr><td class="term">Event</td><td>Event Information: event name and date</td><td>Opportunity details</td></tr>
+            <tr><td class="term">Account</td><td>Source Detail: account or employer name</td><td>Opportunity details</td></tr>
+            <tr><td class="term">Digital Marketing / 10Yi Site / Website</td><td>Source Detail: campaign or page name</td><td>Opportunity details</td></tr>
+            <tr><td class="term">Network / Other</td><td>Source Detail: what it was</td><td>Opportunity details</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="example-card">
+        <div class="ex-label">Example</div>
+        <p>A Realtor sends a buyer who wants to buy their first home.</p>
+        <div class="crm-line">Source: Realtor<br>Team Information → Realtor: [Realtor Name – Company]<br>Team Information → Equity Asset Manager (EAM): [EAM working the client]</div>
+      </div>
+      <p>The person working the file goes in their own Team Information field (EAM, Analyst, LO). That doesn't change the Source. See the <a onclick="showScreen('sourcing')">Contact Sourcing Guidelines</a> for every Source value.</p>
+
+      <div class="callout">
+        <div class="callout-label">Golden Rule</div>
+        <p>Right pipeline, right stage, every field you know.</p>
+        <p class="callout-sub">A complete card lets anyone on the team pick up the client without asking, and keeps our reporting and attribution accurate.</p>
+      </div>
+
+    </article>
+  </section>
+
   <section class="screen" id="screen-tagging">
     <div class="article-header">
       <button class="back-link" onclick="showScreen('hub')">← Back to Guidelines Hub</button>
@@ -763,7 +1084,7 @@
       </div>
 
       <h2><span class="num">3</span>Recording the Specific Person, Account, or Campaign</h2>
-      <p>There is no separate "Source Detail" field. Whenever possible, record the specific person, organization, campaign, or event in the matching field on the card:</p>
+      <p>Whenever possible, record the specific person, organization, campaign, or event in the matching field on the card. People go in Team Information; events go in Event Information; accounts, campaigns, and anything else go in <strong>Source Detail</strong> (Opportunity details):</p>
       <div class="example-card">
         <div class="crm-line">Source: Realtor<br>Team Information → Realtor: Maria Lopez – ABC Realty</div>
       </div>
@@ -774,10 +1095,10 @@
         <div class="crm-line">Source: Event<br>Opportunity details → Event Information: EMB Homebuyer Seminar – August 2026</div>
       </div>
       <div class="example-card">
-        <div class="crm-line">Source: Account<br>Comments/Notes: Memorial Hospital – Employee Program</div>
+        <div class="crm-line">Source: Account<br>Source Detail: Memorial Hospital – Employee Program</div>
       </div>
       <div class="example-card">
-        <div class="crm-line">Source: Digital Marketing<br>Comments/Notes: Meta – First-Time Homebuyer Campaign</div>
+        <div class="crm-line">Source: Digital Marketing<br>Source Detail: Meta – First-Time Homebuyer Campaign</div>
       </div>
 
       <h2><span class="num">4</span>EMB Team Member Lead Attribution</h2>
@@ -802,7 +1123,7 @@
       <p><strong>Example:</strong> A BDO develops a relationship with a hospital. The hospital refers an employee to EMB, and the mortgage is assigned to an LO.</p>
       <p>The CRM should reflect:</p>
       <div class="example-card">
-        <div class="crm-line">Source: Account<br>Comments/Notes: Hospital / Employer Name<br>Team Information → Business Developer (BDO): [BDO Name]<br>Team Information → Loan Officer: [LO Name]</div>
+        <div class="crm-line">Source: Account<br>Source Detail: Hospital / Employer Name<br>Team Information → Business Developer (BDO): [BDO Name]<br>Team Information → Loan Officer: [LO Name]</div>
       </div>
       <p>The LO handling the transaction did not become the original Source of the lead.</p>
 
@@ -832,7 +1153,7 @@
       <div class="example-card">
         <div class="ex-label">Example 5 — Digital Lead</div>
         <p>A consumer completes an EMB Facebook/Instagram funnel.</p>
-        <div class="crm-line">Source: Digital Marketing<br>Comments/Notes: [Campaign Name]</div>
+        <div class="crm-line">Source: Digital Marketing<br>Source Detail: [Campaign Name]</div>
         <p style="margin-top:10px;">Applicable contact TAGS may separately include:</p>
         <span class="tags-line">Digital Lead + Renter + FTHB</span>
       </div>
@@ -844,7 +1165,7 @@
       <div class="example-card">
         <div class="ex-label">Example 7 — Producing Account</div>
         <p>EMB has established a relationship with an employer that allows EMB to provide mortgage education/services to its employees. An employee becomes interested in financing.</p>
-        <div class="crm-line">Source: Account<br>Comments/Notes: [Employer / Account Name]</div>
+        <div class="crm-line">Source: Account<br>Source Detail: [Employer / Account Name]</div>
         <p style="margin-top:10px;">If an EMB BDO or other team member developed the account, also select them in the matching Team Information dropdown.</p>
       </div>
 
@@ -853,7 +1174,7 @@
         <li>Every new lead/contact should have a SOURCE whenever the information is known.</li>
         <li>Select the Source based on who or what originally generated the lead.</li>
         <li>Do not change Source simply because the lead is reassigned to another LO, EAM, processor, or team member.</li>
-        <li>Record the specific person, company, event, account, or campaign in the matching Team Information field, Event Information, or Comments/Notes whenever it can be identified. Ongoing client updates go in the Notes tab instead.</li>
+        <li>Record the specific person, company, event, account, or campaign in the matching Team Information field, Event Information, or Source Detail whenever it can be identified. Ongoing client updates go in the Notes tab instead.</li>
         <li>For internally generated leads, always select the EMB team member responsible in the Team Information tab.</li>
         <li>If an EAM books through the 10Yi Booking Hub, change the Source from BDO-Form to EAM-Form.</li>
         <li>Do not guess the Source. If uncertain, verify before selecting it.</li>
@@ -867,7 +1188,7 @@
       <div class="qa-row"><div class="q">TAGS tell us</div><div class="a">Who is this contact and what do we know about them?</div></div>
       <p style="margin-top:18px;"><strong>Example:</strong> A person responds to a Meta advertisement. They currently rent and want to purchase their first home.</p>
       <div class="example-card">
-        <div class="crm-line">Source: Digital Marketing<br>Comments/Notes: Meta – FTHB Campaign</div>
+        <div class="crm-line">Source: Digital Marketing<br>Source Detail: Meta – FTHB Campaign</div>
         <p style="margin-top:10px;">Tags:</p>
         <span class="tags-line">Digital Lead + Renter + FTHB</span>
       </div>
@@ -997,17 +1318,18 @@
       </div>
 
       <div class="field-group">
-        <h3>Moving Through the Pipeline</h3>
+        <h3>Moving Through the 10Yi Buying Power Pipeline</h3>
+        <p>Non-10Yi clients use the Pre Approval pipeline instead. See the <a onclick="showScreen('pipeline')">Pipeline &amp; Card Guide</a> for all three pipelines and the Phase tab.</p>
         <div class="table-wrap">
           <table class="def-table">
             <thead><tr><th>Stage</th><th>Who moves it &amp; when</th></tr></thead>
             <tbody>
-              <tr><td class="term">01. 1st Contact / Interview <span style="white-space:nowrap">(24 hrs)</span></td><td>New opportunity — fill in contact, opportunity details, Source, Team Information, and 10Yi fields.</td></tr>
-              <tr><td class="term">02. 20 Min Intro Meeting</td><td>Move here once the meeting is booked and the Booking Date is filled in. This tells the EAM your part is done; BDOs don't need to enter any more data after this step.</td></tr>
-              <tr><td class="term">03. Gathering Docs <span style="white-space:nowrap">(1–3 days)</span></td><td>The EAM moves the card here after the intro meeting if the client wants to move forward, and requests documents in Arive.</td></tr>
-              <tr><td class="term">04. 10Yi – Under Analysis <span style="white-space:nowrap">(24–48 hrs)</span></td><td>Moved here once documents are received. From here the Equity Asset Analyst moves the card forward when the analysis is done.</td></tr>
-              <tr><td class="term">05. 10Yi – Outcome <span style="white-space:nowrap">(24–48 hrs)</span></td><td>The EAM books the outcome meeting and fills in the Outcome Date.</td></tr>
-              <tr><td class="term">06. 10Yi – Implementation</td><td>The EAM moves the card here if the client wants to move forward after the outcome. From then on, the Analyst moves the card forward.</td></tr>
+              <tr><td class="term">1ST Contact <span style="white-space:nowrap">24Hrs</span></td><td>New opportunity — fill in contact, opportunity details, Source, Team Information, and 10Yi fields.</td></tr>
+              <tr><td class="term">20 Min Intro Meeting</td><td>Move here once the meeting is booked and the Booking Date is filled in. This tells the EAM your part is done; BDOs don't need to enter any more data after this step.</td></tr>
+              <tr><td class="term">Gathering Docs <span style="white-space:nowrap">1-3 Days</span></td><td>The EAM moves the card here after the intro meeting if the client wants to move forward, and requests documents in Arive.</td></tr>
+              <tr><td class="term">10Yi-Under Analysis <span style="white-space:nowrap">24-48Hrs</span></td><td>Moved here once documents are received. From here the Equity Asset Analyst moves the card forward when the analysis is done.</td></tr>
+              <tr><td class="term">10Yi Outcome <span style="white-space:nowrap">24-48Hrs</span></td><td>The EAM books the outcome meeting and fills in the Outcome Date.</td></tr>
+              <tr><td class="term">10Yi Implementation</td><td>The EAM moves the card here if the client wants to move forward after the outcome. From then on, the Analyst moves the card forward.</td></tr>
             </tbody>
           </table>
         </div>
@@ -1043,13 +1365,13 @@
 
   (function init(){
     var hash = (window.location.hash || '').replace('#','');
-    var valid = ['hub','tagging','sourcing','eam'];
+    var valid = ['hub','pipeline','tagging','sourcing','eam'];
     showScreen(valid.indexOf(hash) !== -1 ? hash : 'hub');
   })();
 
   window.addEventListener('hashchange', function(){
     var hash = (window.location.hash || '').replace('#','');
-    var valid = ['hub','tagging','sourcing','eam'];
+    var valid = ['hub','pipeline','tagging','sourcing','eam'];
     if(valid.indexOf(hash) !== -1){ showScreen(hash); }
   });
 </script>
