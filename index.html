@@ -676,7 +676,7 @@
           <div class="flow-dest">Lands in: <strong>10Yi Buying Power → 1ST Contact 24Hrs</strong></div>
           <ul>
             <li>The card is created automatically and assigned to the EAM chosen on the form.</li>
-            <li>Source is filled in automatically. If an EAM booked their own lead, change it as the <a onclick="showScreen('sourcing')">Sourcing Guidelines</a> explain.</li>
+            <li>Source is filled in automatically as <strong>EAM-Form</strong>. Leave it as is.</li>
             <li>Fill in the <strong>Booking Date</strong> and move the card to <strong>20 Min Intro Meeting</strong>.</li>
           </ul>
         </div>
@@ -892,19 +892,16 @@
 
       <div class="table-wrap">
         <table class="def-table">
-          <thead><tr><th>If Source is…</th><th>Fill in this field</th><th>Where</th></tr></thead>
+          <thead><tr><th>If Source is…</th><th>Fill in this Team Information field</th><th>Source Detail</th></tr></thead>
           <tbody>
-            <tr><td class="term">EAM / EAM-Form</td><td>Equity Asset Manager (EAM)</td><td>Team Information</td></tr>
-            <tr><td class="term">BDO / BDO-Form</td><td>Business Developer (BDO)</td><td>Team Information</td></tr>
-            <tr><td class="term">LO</td><td>Loan Officer (LO)</td><td>Team Information</td></tr>
-            <tr><td class="term">Realtor</td><td>Realtor (name and company)</td><td>Team Information</td></tr>
-            <tr><td class="term">Past Client</td><td>Referral (Other than Realtor): the past client's name</td><td>Team Information</td></tr>
-            <tr><td class="term">Business Partner</td><td>Referral (Other than Realtor): person and company</td><td>Team Information</td></tr>
-            <tr><td class="term">Builder</td><td>Builder/Developer</td><td>Team Information</td></tr>
-            <tr><td class="term">Event</td><td>Event Information: event name and date</td><td>Opportunity details</td></tr>
-            <tr><td class="term">Account</td><td>Source Detail: account or employer name</td><td>Opportunity details</td></tr>
-            <tr><td class="term">Digital Marketing / 10Yi Site / Website</td><td>Source Detail: campaign or page name</td><td>Opportunity details</td></tr>
-            <tr><td class="term">Network / Other</td><td>Source Detail: what it was</td><td>Opportunity details</td></tr>
+            <tr><td class="term">EAM</td><td>Equity Asset Manager (EAM)</td><td>—</td></tr>
+            <tr><td class="term">BDO</td><td>Business Developer (BDO)</td><td>—</td></tr>
+            <tr><td class="term">LO</td><td>Loan Officer (LO)</td><td>—</td></tr>
+            <tr><td class="term">Realtor</td><td>Realtor (name and company)</td><td>—</td></tr>
+            <tr><td class="term">Builder</td><td>Builder/Developer</td><td>—</td></tr>
+            <tr><td class="term">Referral Other</td><td>Referral (Other than Realtor): the person's name</td><td>What kind: Past Client, Account – [name], Business Partner – [company], Event – [event name and date], Network</td></tr>
+            <tr><td class="term">EAM-Form <span class="tag-pill">Automatic</span></td><td>Equity Asset Manager (and the BDO, if a BDO booked it)</td><td>—</td></tr>
+            <tr><td class="term">10Yi Site <span class="tag-pill">Automatic</span></td><td>Equity Asset Manager working the client</td><td>—</td></tr>
           </tbody>
         </table>
       </div>
@@ -1061,8 +1058,9 @@
 
       <h2><span class="num">1</span>Where Source Lives in GoHighLevel</h2>
       <p>Source is recorded in two places on the opportunity card. Both should be filled in:</p>
-      <div class="qa-row"><div class="q"><strong>Opportunity details → Source</strong> (free-text field)</div><div class="a">Type <em>what kind</em> of source it is, using the exact values in the table below (e.g. <strong>BDO</strong>, <strong>EAM</strong>, <strong>BDO-Form</strong>).</div></div>
+      <div class="qa-row"><div class="q"><strong>Opportunity details → Source</strong> (free-text field)</div><div class="a">Type <em>what kind</em> of source it is, using the exact values in the table below (e.g. <strong>BDO</strong>, <strong>EAM</strong>, <strong>Realtor</strong>). Never type a person's name in Source.</div></div>
       <div class="qa-row"><div class="q"><strong>Team Information</strong> tab (dropdowns)</div><div class="a">Select <em>who</em>: Equity Asset Manager, Business Developer (BDO), Loan Officer, Realtor, Referral (Other than Realtor), Builder/Developer.</div></div>
+      <div class="qa-row"><div class="q"><strong>Opportunity details → Source Detail</strong></div><div class="a">Only for <strong>Referral Other</strong>: what kind of referral it was (Past Client, Account, Business Partner, Event, Network) and its name.</div></div>
       <p style="margin-top:14px;">Example: Source <strong>BDO</strong> tells us the lead came from a BDO; the <strong>Business Developer (BDO)</strong> dropdown in Team Information tells us which one.</p>
 
       <h2><span class="num">2</span>Source Definitions</h2>
@@ -1070,40 +1068,31 @@
         <table class="def-table">
           <thead><tr><th>Source</th><th>When to Use It</th></tr></thead>
           <tbody>
-            <tr><td class="term">LO</td><td>Lead was personally generated by an EMB Loan Originator.</td></tr>
-            <tr><td class="term">EAM</td><td>Lead was personally generated by an EMB Equity Asset Manager.</td></tr>
-            <tr><td class="term">BDO</td><td>Lead was personally generated by an EMB Business Development Officer.</td></tr>
-            <tr><td class="term">BDO-Form</td><td>Lead was booked through the <strong>10Yi Booking Hub</strong> form. This is filled in automatically when the form is submitted — no need to type it.</td></tr>
-            <tr><td class="term">EAM-Form</td><td>An EAM booked their own lead through the 10Yi Booking Hub. The form still saves the Source as <strong>BDO-Form</strong>, so the EAM must open the card and change it to <strong>EAM-Form</strong>.</td></tr>
-            <tr><td class="term">Realtor</td><td>Lead was referred to EMB by a Realtor or Real Estate Agent.</td></tr>
-            <tr><td class="term">Business Partner</td><td>Lead was referred by an external professional, company, or strategic business partner.</td></tr>
-            <tr><td class="term">Past Client</td><td>Lead or referral was generated by a previous EMB client.</td></tr>
-            <tr><td class="term">Account</td><td>Lead came through an established EMB business/strategic account, such as an employer, hospital, real estate office, association, etc.</td></tr>
-            <tr><td class="term">Event</td><td>Lead was generated through an EMB event, seminar, webinar, presentation, expo, or similar activity.</td></tr>
-            <tr><td class="term">Digital Marketing</td><td>Lead was generated through digital advertising, social media campaigns, funnels, landing pages, or other paid/online marketing efforts.</td></tr>
-            <tr><td class="term">Website / Organic</td><td>Lead contacted EMB directly through the website, organic online search, or other non-paid web activity.</td></tr>
-            <tr><td class="term">Network</td><td>Lead originated through personal or professional networking and no more specific source applies.</td></tr>
-            <tr><td class="term">Other</td><td>Use only when none of the established Source options apply. Additional details should always be provided.</td></tr>
+            <tr><td class="term">LO</td><td>Lead was personally generated by an EMB Loan Originator. Select them in <strong>Loan Officer</strong>.</td></tr>
+            <tr><td class="term">EAM</td><td>Lead was personally generated by an EMB Equity Asset Manager. Select them in <strong>Equity Asset Manager</strong>.</td></tr>
+            <tr><td class="term">BDO</td><td>Lead was personally generated by an EMB Business Development Officer. Select them in <strong>Business Developer (BDO)</strong>.</td></tr>
+            <tr><td class="term">Realtor</td><td>Lead was referred to EMB by a Realtor or Real Estate Agent. Fill in <strong>Realtor</strong> with their name and company.</td></tr>
+            <tr><td class="term">Builder</td><td>Lead was referred by a builder or developer. Fill in <strong>Builder/Developer</strong>.</td></tr>
+            <tr><td class="term">Referral Other</td><td>Anyone or anything that doesn't have its own Team Information field: a past client, an account (employer, hospital, association), a business partner, an event, or networking. Fill in <strong>Referral (Other than Realtor)</strong> with the person's name, and write what kind it was in <strong>Source Detail</strong>: <em>Past Client</em>, <em>Account – [name]</em>, <em>Business Partner – [company]</em>, <em>Event – [event name and date]</em>, or <em>Network</em>.</td></tr>
+            <tr><td class="term">EAM-Form</td><td><strong>Filled in automatically</strong> when a lead is booked through the <strong>10Yi Booking Hub</strong> form, whether a BDO or an EAM booked it. Don't change it. If a BDO booked it, make sure they're selected in <strong>Business Developer (BDO)</strong>.</td></tr>
+            <tr><td class="term">10Yi Site</td><td><strong>Filled in automatically</strong> when a client fills out the form on the 10Yi website. Don't change it.</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h2><span class="num">3</span>Recording the Specific Person, Account, or Campaign</h2>
-      <p>Whenever possible, record the specific person, organization, campaign, or event in the matching field on the card. People go in Team Information; events go in Event Information; accounts, campaigns, and anything else go in <strong>Source Detail</strong> (Opportunity details):</p>
+      <h2><span class="num">3</span>Recording the Specific Person, Account, or Event</h2>
+      <p>Every Source points to a Team Information field. Put the person's name in that field. For <strong>Referral Other</strong>, also write what kind of referral it was in <strong>Source Detail</strong>:</p>
       <div class="example-card">
         <div class="crm-line">Source: Realtor<br>Team Information → Realtor: Maria Lopez – ABC Realty</div>
       </div>
       <div class="example-card">
-        <div class="crm-line">Source: Business Partner<br>Team Information → Referral (Other than Realtor): John Smith – ABC Insurance</div>
+        <div class="crm-line">Source: Referral Other<br>Team Information → Referral (Other than Realtor): John Smith<br>Source Detail: Business Partner – ABC Insurance</div>
       </div>
       <div class="example-card">
-        <div class="crm-line">Source: Event<br>Opportunity details → Event Information: EMB Homebuyer Seminar – August 2026</div>
+        <div class="crm-line">Source: Referral Other<br>Team Information → Referral (Other than Realtor): [person who invited or met them, if any]<br>Source Detail: Event – EMB Homebuyer Seminar, August 2026</div>
       </div>
       <div class="example-card">
-        <div class="crm-line">Source: Account<br>Source Detail: Memorial Hospital – Employee Program</div>
-      </div>
-      <div class="example-card">
-        <div class="crm-line">Source: Digital Marketing<br>Source Detail: Meta – First-Time Homebuyer Campaign</div>
+        <div class="crm-line">Source: Referral Other<br>Team Information → Referral (Other than Realtor): [HR contact or person who referred them]<br>Source Detail: Account – Memorial Hospital</div>
       </div>
 
       <h2><span class="num">4</span>EMB Team Member Lead Attribution</h2>
@@ -1128,7 +1117,7 @@
       <p><strong>Example:</strong> A BDO develops a relationship with a hospital. The hospital refers an employee to EMB, and the mortgage is assigned to an LO.</p>
       <p>The CRM should reflect:</p>
       <div class="example-card">
-        <div class="crm-line">Source: Account<br>Source Detail: Hospital / Employer Name<br>Team Information → Business Developer (BDO): [BDO Name]<br>Team Information → Loan Officer: [LO Name]</div>
+        <div class="crm-line">Source: Referral Other<br>Source Detail: Account – [Hospital / Employer Name]<br>Team Information → Referral (Other than Realtor): [person at the account who referred them]<br>Team Information → Business Developer (BDO): [BDO Name]<br>Team Information → Loan Officer: [LO Name]</div>
       </div>
       <p>The LO handling the transaction did not become the original Source of the lead.</p>
 
@@ -1137,13 +1126,13 @@
       <div class="example-card">
         <div class="ex-label">Example 1 — BDO Booking Through the 10Yi Booking Hub</div>
         <p>A BDO submits the 10Yi Booking Hub form and books the client's 20-minute intro meeting with an EAM.</p>
-        <div class="crm-line">Source: BDO-Form (filled in automatically)<br>Team Information → Business Developer (BDO): [BDO Name]<br>Team Information → Equity Asset Manager: [EAM selected on the form]</div>
+        <div class="crm-line">Source: EAM-Form (filled in automatically)<br>Team Information → Business Developer (BDO): [BDO Name]<br>Team Information → Equity Asset Manager: [EAM selected on the form]</div>
       </div>
       <div class="example-card">
         <div class="ex-label">Example 2 — EAM Booking Through the 10Yi Booking Hub</div>
         <p>An EAM on the go uses the same Booking Hub form for their own lead.</p>
-        <div class="crm-line">Source: change BDO-Form → EAM-Form<br>Team Information → Equity Asset Manager: [EAM Name]</div>
-        <p style="margin-top:10px;">Changing it to EAM-Form is the only extra step. It tells the team the asset manager, not a BDO, is the Source.</p>
+        <div class="crm-line">Source: EAM-Form (filled in automatically)<br>Team Information → Equity Asset Manager: [EAM Name]</div>
+        <p style="margin-top:10px;">Nothing to change. Booking Hub leads are always EAM-Form.</p>
       </div>
       <div class="example-card">
         <div class="ex-label">Example 3 — LO Self-Generated Lead</div>
@@ -1156,21 +1145,21 @@
         <div class="crm-line">Source: Realtor<br>Team Information → Realtor: [Realtor Name / Company]</div>
       </div>
       <div class="example-card">
-        <div class="ex-label">Example 5 — Digital Lead</div>
-        <p>A consumer completes an EMB Facebook/Instagram funnel.</p>
-        <div class="crm-line">Source: Digital Marketing<br>Source Detail: [Campaign Name]</div>
+        <div class="ex-label">Example 5 — 10Yi Website Lead</div>
+        <p>A client fills out the form on the 10Yi website.</p>
+        <div class="crm-line">Source: 10Yi Site (filled in automatically)<br>Team Information → Equity Asset Manager: [EAM working the client]</div>
         <p style="margin-top:10px;">Applicable contact TAGS may separately include:</p>
         <span class="tags-line">Digital Lead + Renter + FTHB</span>
       </div>
       <div class="example-card">
         <div class="ex-label">Example 6 — Past Client Referral</div>
         <p>A previous EMB borrower refers a friend or family member.</p>
-        <div class="crm-line">Source: Past Client<br>Team Information → Referral (Other than Realtor): [Past Client Name]</div>
+        <div class="crm-line">Source: Referral Other<br>Team Information → Referral (Other than Realtor): [Past Client Name]<br>Source Detail: Past Client</div>
       </div>
       <div class="example-card">
         <div class="ex-label">Example 7 — Producing Account</div>
         <p>EMB has established a relationship with an employer that allows EMB to provide mortgage education/services to its employees. An employee becomes interested in financing.</p>
-        <div class="crm-line">Source: Account<br>Source Detail: [Employer / Account Name]</div>
+        <div class="crm-line">Source: Referral Other<br>Team Information → Referral (Other than Realtor): [person who referred them]<br>Source Detail: Account – [Employer / Account Name]</div>
         <p style="margin-top:10px;">If an EMB BDO or other team member developed the account, also select them in the matching Team Information dropdown.</p>
       </div>
 
@@ -1179,11 +1168,11 @@
         <li>Every new lead/contact should have a SOURCE whenever the information is known.</li>
         <li>Select the Source based on who or what originally generated the lead.</li>
         <li>Do not change Source simply because the lead is reassigned to another LO, EAM, processor, or team member.</li>
-        <li>Record the specific person, company, event, account, or campaign in the matching Team Information field, Event Information, or Source Detail whenever it can be identified. Ongoing client updates go in the Notes tab instead.</li>
+        <li>Put the specific person in the Team Information field the Source points to. For Referral Other, write what kind of referral it was (Past Client, Account, Business Partner, Event, Network) in Source Detail. Ongoing client updates go in the Notes tab instead.</li>
         <li>For internally generated leads, always select the EMB team member responsible in the Team Information tab.</li>
-        <li>If an EAM books through the 10Yi Booking Hub, change the Source from BDO-Form to EAM-Form.</li>
+        <li>EAM-Form (Booking Hub) and 10Yi Site (website) are filled in automatically. Don't change them.</li>
         <li>Do not guess the Source. If uncertain, verify before selecting it.</li>
-        <li>Use Other only when none of the established Source categories apply.</li>
+        <li>If no other Source fits, use Referral Other and explain it in Source Detail.</li>
         <li>Because Source information may affect lead attribution and compensation, changes should be made carefully and only when correcting inaccurate information.</li>
       </ul>
 
@@ -1191,18 +1180,18 @@
       <p>Remember that SOURCE and TAGS serve different purposes.</p>
       <div class="qa-row"><div class="q">SOURCE tells us</div><div class="a">Where did this lead come from?</div></div>
       <div class="qa-row"><div class="q">TAGS tell us</div><div class="a">Who is this contact and what do we know about them?</div></div>
-      <p style="margin-top:18px;"><strong>Example:</strong> A person responds to a Meta advertisement. They currently rent and want to purchase their first home.</p>
+      <p style="margin-top:18px;"><strong>Example:</strong> A person fills out the form on the 10Yi website. They currently rent and want to purchase their first home.</p>
       <div class="example-card">
-        <div class="crm-line">Source: Digital Marketing<br>Source Detail: Meta – FTHB Campaign</div>
+        <div class="crm-line">Source: 10Yi Site (filled in automatically)</div>
         <p style="margin-top:10px;">Tags:</p>
         <span class="tags-line">Digital Lead + Renter + FTHB</span>
       </div>
 
       <h2><span class="num">9</span>Before Saving the Contact, Ask</h2>
       <div class="qa-row"><div class="q">1. Who or what originally brought this lead to EMB?</div><div class="a">Type the appropriate SOURCE</div></div>
-      <div class="qa-row"><div class="q">2. Can I identify the specific person, account, campaign, event, or organization?</div><div class="a">Record it in Team Information, Event Information, or Source Detail. Also fill in every other Team Information field that applies, even if that person is not the source.</div></div>
+      <div class="qa-row"><div class="q">2. Can I identify the specific person, account, campaign, event, or organization?</div><div class="a">Put the name in the Team Information field the Source points to (and, for Referral Other, what kind it was in Source Detail). Also fill in every other Team Information field that applies, even if that person is not the source.</div></div>
       <div class="qa-row"><div class="q">3. Did an EMB team member generate the lead or relationship?</div><div class="a">Select them in TEAM INFORMATION and set them as OWNER</div></div>
-      <div class="qa-row"><div class="q">4. Did this come through the 10Yi Booking Hub?</div><div class="a">Leave BDO-Form, or change it to EAM-Form if an EAM booked it</div></div>
+      <div class="qa-row"><div class="q">4. Did this come through the 10Yi Booking Hub?</div><div class="a">It says EAM-Form automatically. Leave it.</div></div>
       <div class="qa-row"><div class="q">5. Who will actually work/originate the mortgage?</div><div class="a">Select the Loan Officer in Team Information, without changing the original Source</div></div>
 
       <div class="callout" style="margin-top:28px;">
@@ -1248,7 +1237,7 @@
 
       <div class="field-group">
         <h3>Source <span class="tag-pill">Required</span></h3>
-        <p>The SOURCE field must be filled out on every opportunity — e.g. <strong>BDO</strong> or <strong>EAM</strong> when entered manually, <strong>BDO-Form</strong> when booked through the 10Yi Booking Hub. If an EAM books through the Booking Hub, change it to <strong>EAM-Form</strong>.</p>
+        <p>The SOURCE field must be filled out on every opportunity — e.g. <strong>BDO</strong> or <strong>EAM</strong> when entered manually. Booking Hub leads are filled in automatically as <strong>EAM-Form</strong> and website leads as <strong>10Yi Site</strong>; leave those as they are.</p>
         <a class="cross-link" onclick="showScreen('sourcing')" href="#sourcing">📎 See the full Contact Sourcing Guidelines →</a>
       </div>
 
@@ -1316,7 +1305,7 @@
         <h3>Booking the 20-Minute Intro Meeting</h3>
         <p>There are two ways to book:</p>
         <ul>
-          <li><strong>10Yi Booking Hub (recommended):</strong> open the link from the email titled <em>"Your 10Yi Booking Hub"</em> (check your inbox, Other, and Junk) — add it to your phone's home screen to book on the go. Choose the asset manager, enter the client's first and last name, phone, and email, select your name, choose New or Existing Business, and add any useful notes (homeowner, financial details, etc.). Press <strong>Submit</strong>, then pick a time slot from the EAM's availability. The opportunity is created in GoHighLevel automatically with Source <strong>BDO-Form</strong>.</li>
+          <li><strong>10Yi Booking Hub (recommended):</strong> open the link from the email titled <em>"Your 10Yi Booking Hub"</em> (check your inbox, Other, and Junk) — add it to your phone's home screen to book on the go. Choose the asset manager, enter the client's first and last name, phone, and email, select your name, choose New or Existing Business, and add any useful notes (homeowner, financial details, etc.). Press <strong>Submit</strong>, then pick a time slot from the EAM's availability. The opportunity is created in GoHighLevel automatically with Source <strong>EAM-Form</strong>.</li>
           <li><strong>Manually in GoHighLevel:</strong> open the opportunity, click the <strong>contact icon</strong> to go to the contact page, then in the right-side menu click <strong>Appointments → Add appointment</strong>. Choose the calendar of the EAM you're booking with and pick an available time slot — the contact's name is added automatically.</li>
         </ul>
         <p>Either way, you still need to fill in the <strong>Booking Date</strong> on the card.</p>
