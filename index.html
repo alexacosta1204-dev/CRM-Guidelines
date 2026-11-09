@@ -932,7 +932,8 @@
       </div>
       <p>The time in the stage name is the deadline. Move the card forward, or update it, before that time runs out.</p>
 
-      <h2><span class="num">3</span>Moving a Card to the Active Loan Pipeline — the Phase Tab</h2>
+      <h2><span class="num">3</span>Moving a Card to Another Pipeline: Active Loan and Buddy System</h2>
+      <h3>To the Active Loan Pipeline (Phase tab)</h3>
       <p>You don't drag a card into the Active Loan Pipeline. You tell the CRM it's ready, and it moves the card for you.</p>
 
       <ol class="steps">
@@ -950,6 +951,30 @@
         <div class="callout-label">Before you check the box</div>
         <p>Check it only when the client has a contract, refi, or HELOC ready to start.</p>
         <p class="callout-sub">Make sure the <strong>Loan Information</strong> tab (including LOAN ID#) and the <strong>Loan Officer</strong> and <strong>Equity Asset Analyst</strong> in Team Information are filled in first, so the next person has everything they need.</p>
+      </div>
+
+      <h3 style="margin-top:34px;">Sending a Card to the Buddy System</h3>
+      <p>When a client can't qualify yet and needs a plan to get there, send the card to the Buddy System the same way: with a checkbox, not by dragging.</p>
+      <ol class="steps">
+        <li>Open the opportunity card and click the <strong>Buddy System Info</strong> tab.</li>
+        <li>Check every <strong>Weakness</strong> that is holding the client back (Income, Assets, Credit, Legal Status, Other).</li>
+        <li>Fill in the <strong>POA</strong> (Plan of Action: how the weakness will be resolved) and <strong>By when POA will be accomplished?</strong> if you have them.</li>
+        <li>At the top of the tab, under <strong>Buddy System Transfer</strong>, check <strong>Send to Buddy System</strong>.</li>
+        <li>Click <strong>Update</strong>.</li>
+      </ol>
+      <div class="example-card">
+        <div class="ex-label">What happens next</div>
+        <p>The card moves to the <strong>Intake</strong> stage of the matching Buddy pipeline:</p>
+        <ul>
+          <li>From <strong>10Yi Buying Power</strong> → <strong>Buddy System – 10Yi → Intake</strong></li>
+          <li>From <strong>Pre Approval (No 10Yi)</strong> → <strong>Buddy System – Traditional → Intake</strong></li>
+        </ul>
+        <p style="margin-bottom:0;">The box stays checked afterwards. That's normal: it shows the card was sent to the Buddy System.</p>
+      </div>
+      <div class="callout">
+        <div class="callout-label">No Weakness, no move</div>
+        <p>The card only moves if at least one <strong>Weakness</strong> is checked. This stops accidental sends.</p>
+        <p class="callout-sub">If you check the box with no Weakness, the card stays where it is and the card owner gets an email. Check the Weakness, click Update, then uncheck and re-check <strong>Send to Buddy System</strong> and click Update again. If you checked it by mistake, just uncheck it. The box does nothing in any other pipeline.</p>
       </div>
 
       <h2><span class="num">4</span>Fill In Every Field You Have Information For</h2>
@@ -1014,8 +1039,9 @@
         <div class="field-group">
           <h3>Buddy System Info</h3>
           <ul class="field-list">
+            <li>Buddy System Transfer → Send to Buddy System (moves the card, see section 3)</li>
             <li>Weakness (checkboxes)</li>
-            <li>How the Area of Weakness will be resolved? (POA)</li>
+            <li>How the Area of Weakness will be resolved? (POA = Plan of Action)</li>
             <li>By when POA will be accomplished?</li>
             <li>Confirmed Buddy System by Manager (manager only)</li>
           </ul>
@@ -1035,6 +1061,7 @@
         <table class="def-table">
           <thead><tr><th>Checkbox</th><th>Tab</th><th>How to use it</th></tr></thead>
           <tbody>
+            <tr><td class="term">Send to Buddy System</td><td>Buddy System Info</td><td>Moves the card to Intake in the matching Buddy pipeline. Only works if at least one Weakness is checked (section 3).</td></tr>
             <tr><td class="term">Weakness: Income / Assets / Credit / Legal Status / Other</td><td>Buddy System Info</td><td>Check every area that is holding the client back. More than one can apply. Then fill in the POA and its date.</td></tr>
             <tr><td class="term">Confirmed Buddy System by Manager: Valid / Incomplete / Misclassified</td><td>Buddy System Info</td><td>Manager only. Confirms whether the client really belongs in the Buddy System.</td></tr>
             <tr><td class="term">Ready For Active Loan Pipeline</td><td>Phase</td><td>Moves the card to the Active Loan Pipeline. Check it only when the client is ready (section 3).</td></tr>
@@ -1815,7 +1842,7 @@
     phase:[ {sec:'Pipeline Completion'}, L('ready','Ready For Active Loan Pipeline','check') ]
   };
   OPT.loanType = ['Conventional','FHA','VA','DSCR','Non-QM'];
-  var NAV = [['Opportunity details','details'],['Team Information','team'],['10Yi Program Information','tenyi'],['Loan Information','loan'],['Buddy System Info',null,'Only for Buddy System clients. Not part of this practice.'],['Phase','phase'],['Book or update appointment',null],['Tasks',null],['Notes',null],['Payments',null],['Associated objects',null]];
+  var NAV = [['Opportunity details','details'],['Team Information','team'],['10Yi Program Information','tenyi'],['Loan Information','loan'],['Buddy System Info',null,'Only for clients going to the Buddy System. Check Weakness, then Send to Buddy System. Not part of this practice.'],['Phase','phase'],['Book or update appointment',null],['Tasks',null],['Notes',null],['Payments',null],['Associated objects',null]];
 
   /* Use the CRM's labels for the scenario fields too, so the checklist matches the screen. */
   SCENARIOS.forEach(function(s){ ORDER.forEach(function(t){ s.tabs[t].forEach(function(f){
