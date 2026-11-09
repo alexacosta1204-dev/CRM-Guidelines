@@ -644,6 +644,58 @@
     .demo-body{padding:16px 14px 6px;}
     .demo-actions{padding:14px;}
   }
+  /* Look of the GoHighLevel "Edit opportunity" pop-up */
+  .ghl-modal{background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(16,24,40,.16),0 0 0 1px rgba(16,24,40,.06);overflow:hidden;font-size:14px;}
+  .ghl-head{position:relative;padding:18px 20px 12px;border-bottom:1px solid #EAECF0;}
+  .ghl-title{font-size:16px;font-weight:600;color:#101828;padding-right:36px;}
+  .ghl-sub{margin:6px 0 0;font-size:12.5px;color:#475467;}
+  .ghl-x{position:absolute;top:12px;right:14px;width:30px;height:30px;border:none;background:none;font-size:24px;line-height:1;color:#344054;cursor:pointer;border-radius:6px;}
+  .ghl-x:hover{background:#F2F4F7;}
+  .ghl-body{display:grid;grid-template-columns:176px minmax(0,1fr);min-height:440px;}
+  .ghl-nav{border-right:1px solid #EAECF0;padding:10px 8px;display:flex;flex-direction:column;gap:2px;}
+  .ghl-navitem{display:block;text-align:left;font:inherit;font-size:12.5px;color:#475467;background:none;border:none;border-radius:6px;padding:6px 8px;position:relative;}
+  .ghl-navitem.off{color:#98A2B3;cursor:not-allowed;}
+  .ghl-navitem.step{cursor:pointer;color:#344054;font-weight:500;}
+  .ghl-navitem.step:disabled{cursor:default;}
+  .ghl-navitem.next::after{content:"";position:absolute;right:8px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:#E9C46A;}
+  .ghl-navitem.done{color:#1F6B43;}
+  .ghl-navitem.done::after{content:"\2713";position:absolute;right:8px;top:5px;font-weight:700;color:#2E8C57;}
+  .ghl-navitem.active{background:#EAF1FF;color:#1849A9;font-weight:700;box-shadow:inset 3px 0 0 #155EEF;animation:navPulse 1.8s ease-in-out infinite;}
+  @keyframes navPulse{0%,100%{background:#EAF1FF;}50%{background:#D6E4FF;}}
+  @media (prefers-reduced-motion: reduce){.ghl-navitem.active{animation:none;}}
+  .ghl-manage{margin-top:auto;padding:10px 8px 2px;font-size:12.5px;font-weight:600;color:#155EEF;opacity:.6;}
+  .ghl-main{padding:12px 16px 16px;min-width:0;}
+  .ghl-mainhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:2px 0 10px;border-bottom:1px solid #EAECF0;margin-bottom:10px;font-weight:600;color:#101828;font-size:14.5px;}
+  .ghl-hide{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:400;color:#475467;}
+  .ghl-box{width:14px;height:14px;border:1px solid #D0D5DD;border-radius:3px;display:inline-block;}
+  .ghl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px;}
+  .ghl-sec{grid-column:1/-1;font-weight:600;color:#101828;font-size:14.5px;padding:12px 0 6px;border-bottom:1px solid #EAECF0;margin-bottom:4px;}
+  .ghl-grid .demo-field{padding:6px 8px;}
+  .ghl-grid .demo-field.full{grid-column:1/-1;}
+  .ghl-grid .demo-field label{font-size:12.5px;font-weight:500;color:#344054;margin-bottom:4px;}
+  .ghl-grid .demo-field input[type=text],.ghl-grid .demo-field input[type=date],.ghl-grid .demo-field select{height:36px;padding:6px 10px;border:1px solid #D0D5DD;border-radius:6px;font-size:13.5px;}
+  .ghl-grid .f-na input,.ghl-grid .f-na select{background:#fff;}
+  .ghl-req{color:#D92D20;font-weight:600;}
+  .ghl-upload{border:1px dashed #D0D5DD;border-radius:6px;padding:10px;font-size:12.5px;color:#98A2B3;text-align:center;background:#FCFCFD;}
+  .ghl-upload span{font-size:11.5px;}
+  .ghl-main .demo-tabnote{background:#F8F9FC;border-radius:6px;padding:8px 10px;font-size:12.5px;margin:0 0 8px;}
+  .ghl-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid #EAECF0;padding:12px 20px 14px;}
+  .ghl-meta{font-size:11.5px;color:#475467;line-height:1.5;}
+  .ghl-btns{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+  .ghl-btns .demo-btn{padding:8px 18px;border-radius:8px;}
+  .ghl-update{background:#155EEF;border-color:#155EEF;min-width:96px;}
+  .ghl-update:hover{background:#2970FF;}
+  @media (max-width:700px){
+    .ghl-body{grid-template-columns:1fr;min-height:0;}
+    .ghl-nav{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid #EAECF0;padding:8px;scrollbar-width:none;}
+    .ghl-nav::-webkit-scrollbar{display:none;}
+    .ghl-navitem{flex:0 0 auto;white-space:nowrap;padding-right:22px;}
+    .ghl-navitem.off,.ghl-manage{display:none;}
+    .ghl-navitem.active{box-shadow:inset 0 -3px 0 #155EEF;}
+    .ghl-grid{grid-template-columns:1fr;}
+    .ghl-main{padding:10px 12px 14px;}
+    .ghl-foot{padding:12px 14px;}
+  }
 </style>
 </head>
 <body>
@@ -1725,7 +1777,64 @@
 
   var ORDER = ['details','team','tenyi','loan','phase'];
   var BADGE = {auto:'Filled automatically', todo:'Fill in', later:'Later', optional:'If you know it', na:''};
-  var root, sc, tabIdx, vals, tried;
+  var root, sc, tabIdx, maxIdx, vals, tried;
+
+  /* The real "Edit opportunity" pop-up: every field, in the CRM's own order and wording. */
+  function L(key,label,type,o){ o=o||{}; o.key=key; o.label=label; o.type=type; return o; }
+  var LAYOUT = {
+    details:[ {sec:'Contact details'},
+      L('contact','Primary contact name','text',{req:1}), L('email','Primary email','text'),
+      L('phone','Primary phone','text'), L('addl','Additional contacts (Max: 10)','select',{ph:'Add additional contacts'}),
+      {sec:'Opportunity details'},
+      L('name','Opportunity name','text',{req:1,full:1}),
+      L('pipeline','Pipeline','select',{opts:'pipeline'}), L('stage','Stage','stage'),
+      L('status','Status','select',{opts:'status'}), L('value','Value','text',{ph:'$ 0'}),
+      L('owner','Owner','text',{ph:'Select owner'}), L('followers','Followers','select',{ph:'Add followers'}),
+      L('business','Business name','text',{ph:'Enter business name'}), L('source','Source','select',{opts:'source'}),
+      L('closeExp','Expected Close Date','date'), L('tags','Tags','text',{ph:'Add tags'}),
+      L('sourceDetail','Source Detail','text'), L('oppType','Opportunity Type','select',{opts:'oppType'}),
+      L('event','Event Information','text'), L('closeDate','Close Date','date'),
+      L('notes','Comments/Notes','text',{full:1}) ],
+    team:[ {sec:'Team Information'},
+      L('eam','Equity Asset Manager (EAM)','text'), L('bdo','Business Developer (BDO)','text'),
+      L('eaa','Equity Asset Analyst (EAA)','text'), L('lo','Loan Officer (LO)','text'),
+      L('realtor','Realtor','text'), L('referral','Referral (Other than Realtor)','text'),
+      L('builder','Builder/Developer','text'), L('teamFollowers','Followers','select',{ph:'Add followers'}) ],
+    tenyi:[ {sec:'10Yi Program Information'},
+      L('tenyi','10Yi (Yes/No)','select',{opts:'yesNo'}), L('booking','Booking Date','date'),
+      L('outcome','Outcome Date','date'), L('strategy','10YI Strategy','text'),
+      L('lennar','Lennar Prospect?','select',{opts:'yesNo'}),
+      L('bpl','10Yi Implementation + Buying Power Letter','file',{full:1}) ],
+    loan:[ {sec:'Loan Information'},
+      L('loanId','LOAN ID#','text'), L('loanType','Loan Type','select',{opts:'loanType'}),
+      L('purpose','Loan Purpose','select',{opts:'purpose'}), L('property','Type of Property','select',{opts:'property'}),
+      L('street','Street No. / #Unit No.','text'), L('occupancy','Occupancy','select',{opts:'occupancy'}),
+      L('ltv','Est. LTV','text'), L('yrs','Yrs with Current Employment','text'),
+      L('credit','Est. Credit Score','text'), L('rate','Current Rate','text'),
+      L('inquiry','Loan Inquiry Form (INTERVIEW)','file',{full:1}) ],
+    phase:[ {sec:'Pipeline Completion'}, L('ready','Ready For Active Loan Pipeline','check') ]
+  };
+  OPT.loanType = ['Conventional','FHA','VA','DSCR','Non-QM'];
+  var NAV = [['Opportunity details','details'],['Team Information','team'],['10Yi Program Information','tenyi'],['Loan Information','loan'],['Buddy System Info',null,'Only for Buddy System clients. Not part of this practice.'],['Phase','phase'],['Book or update appointment',null],['Tasks',null],['Notes',null],['Payments',null],['Associated objects',null]];
+
+  /* Use the CRM's labels for the scenario fields too, so the checklist matches the screen. */
+  SCENARIOS.forEach(function(s){ ORDER.forEach(function(t){ s.tabs[t].forEach(function(f){
+    var lay = LAYOUT[t].filter(function(x){ return x.key===f.key; })[0];
+    if(lay) f.label = lay.label;
+  }); }); });
+
+  function tabFields(t){
+    return LAYOUT[t].map(function(lay){
+      if(lay.sec) return lay;
+      var f = sc.tabs[t].filter(function(x){ return x.key===lay.key; })[0];
+      var out = {};
+      Object.keys(lay).forEach(function(k){ out[k]=lay[k]; });
+      if(f){ Object.keys(f).forEach(function(k){ if(k!=='label' && !(k==='type' && lay.type==='stage')) out[k]=f[k]; }); out.type = (lay.type==='stage') ? 'stage' : (f.type==='check' ? 'check' : lay.type==='file' ? 'file' : f.type); }
+      else out.kind = (lay.type==='file') ? 'later' : 'na';
+      if(out.type==='select' && !out.opts) out.opts = lay.opts;
+      return out;
+    });
+  }
 
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function norm(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ').trim(); }
@@ -1743,7 +1852,7 @@
   function todos(tab){ return sc.tabs[tab].filter(function(f){ return f.kind==='todo'; }); }
 
   function renderPick(){
-    var h = '<div class="article-lede">Practice filling in an opportunity card before you do it in the CRM. Pick how the lead came in. Fields the CRM fills in for you show up <strong>green</strong>. Fields you need to fill in <strong>glow yellow</strong>. Each tab has a checklist on the side.</div>';
+    var h = '<div class="article-lede">Practice filling in an opportunity card before you do it in the CRM. The card below is laid out like the real <strong>Edit opportunity</strong> pop-up in GoHighLevel, with the same tabs and fields. Pick how the lead came in. Fields the CRM fills in for you show up <strong>green</strong>. Fields you need to fill in <strong>glow yellow</strong>. Each tab has a checklist on the side.</div>';
     h += '<h2 style="margin-top:28px;color:var(--navy-deep);">How is this opportunity being created?</h2>';
     h += '<p style="color:var(--ink-soft);margin-top:0;">The Booking Hub form and the website are only for 10Yi clients right now.</p>';
     h += '<div class="demo-pick">';
@@ -1758,7 +1867,7 @@
   }
 
   function start(i){
-    sc = SCENARIOS[i]; tabIdx = 0; vals = {}; tried = {};
+    sc = SCENARIOS[i]; tabIdx = 0; maxIdx = 0; vals = {}; tried = {};
     ORDER.forEach(function(t){ sc.tabs[t].forEach(function(f){ if(f.value!==undefined) vals[f.key]=f.value; }); });
     renderTab();
     window.scrollTo({top:0});
@@ -1771,9 +1880,12 @@
     if(f.type==='check'){
       return '<div class="demo-check"><input type="checkbox" id="'+id+'" data-k="'+f.key+'"'+(v?' checked':'')+dis+'><span>Ready For Active Loan Pipeline</span></div>';
     }
+    if(f.type==='file'){
+      return '<div class="ghl-upload">Upload file <span>(added later in the process)</span></div>';
+    }
     if(f.type==='select' || f.type==='stage'){
-      var opts = f.type==='stage' ? (STAGES[vals.pipeline]||[]) : OPT[f.opts];
-      var h = '<select id="'+id+'" data-k="'+f.key+'"'+dis+'><option value="">'+(f.type==='stage' && !vals.pipeline ? 'Pick a pipeline first' : 'Select…')+'</option>';
+      var opts = f.type==='stage' ? (STAGES[vals.pipeline]||[]) : (OPT[f.opts]||[]);
+      var h = '<select id="'+id+'" data-k="'+f.key+'"'+dis+'><option value="">'+(f.type==='stage' && !vals.pipeline ? 'Pick a pipeline first' : esc(f.ph||'Select'))+'</option>';
       opts.forEach(function(o){
         var label = (f.display && o===f.value) ? f.display : o;
         h += '<option value="'+esc(o)+'"'+(o===v?' selected':'')+'>'+esc(label)+'</option>';
@@ -1781,14 +1893,14 @@
       return h+'</select>';
     }
     if(f.type==='date') return '<input type="date" id="'+id+'" data-k="'+f.key+'" value="'+esc(v||'')+'"'+dis+'>';
-    var ph = f.kind==='later' ? 'Fill in later' : '';
+    var ph = f.kind==='later' ? 'Fill in later' : (f.ph||'');
     return '<input type="text" id="'+id+'" data-k="'+f.key+'" value="'+esc(v||'')+'" placeholder="'+ph+'" autocomplete="off"'+dis+'>';
   }
 
   function fieldHtml(f){
-    var cls = 'demo-field f-'+f.kind;
+    var cls = 'demo-field f-'+f.kind+(f.full?' full':'');
     if(f.kind==='todo' && tried[f.key]) cls += isOk(f) ? ' ok' : ' bad';
-    var h = '<div class="'+cls+'" data-field="'+f.key+'"><label for="demo-f-'+f.key+'"><span>'+esc(f.label)+'</span>'+(BADGE[f.kind]?'<span class="demo-badge">'+(f.kind==='todo' && tried[f.key] && isOk(f) ? 'Done' : BADGE[f.kind])+'</span>':'')+'</label>';
+    var h = '<div class="'+cls+'" data-field="'+f.key+'"><label for="demo-f-'+f.key+'"><span>'+(f.type==='check'?'':esc(f.label))+(f.req?' <b class="ghl-req">*</b>':'')+'</span>'+(BADGE[f.kind]?'<span class="demo-badge">'+(f.kind==='todo' && tried[f.key] && isOk(f) ? 'Done' : BADGE[f.kind])+'</span>':'')+'</label>';
     h += fieldInput(f);
     if(f.kind==='todo' && tried[f.key] && !isOk(f) && f.err) h += '<p class="demo-err">'+esc(f.err)+'</p>';
     else if(f.hint) h += '<p class="demo-hint">'+esc(f.hint)+'</p>';
@@ -1815,16 +1927,28 @@
     var t = ORDER[tabIdx];
     var h = '<div class="demo-wrap"><div>';
     h += '<div class="demo-story"><div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;">'+esc(sc.title)+' · You are '+esc(sc.you)+'</div>'+sc.story+'</div>';
-    h += '<div class="demo-legend"><span style="background:#F6E2A6;color:#7A5A12;">Fill in</span><span style="background:rgba(46,140,87,0.15);color:#1F6B43;">Filled automatically</span><span style="background:rgba(24,84,168,0.1);color:var(--blue);">If you know it</span><span style="background:var(--silver-light);color:var(--ink-soft);">Later</span></div>';
-    h += '<div class="demo-card"><div class="demo-tabs" role="tablist">';
-    ORDER.forEach(function(x,i){ h += '<span class="demo-tab'+(i===tabIdx?' current':'')+(i<tabIdx?' done':'')+'" role="tab" aria-selected="'+(i===tabIdx)+'">'+TAB_NAMES[x]+'</span>'; });
-    h += '</div><div class="demo-body"><p class="demo-tabnote">'+esc(TAB_NOTES[t])+'</p><div class="demo-fields">';
-    var order = {todo:0, auto:1, optional:2, later:3, na:4};
-    sc.tabs[t].slice().sort(function(a,b){ return order[a.kind]-order[b.kind]; }).forEach(function(f){ h += fieldHtml(f); });
-    h += '</div></div><div class="demo-actions"><div style="display:flex;gap:8px;flex-wrap:wrap;">';
-    h += '<button type="button" class="demo-btn ghost" data-act="restart">Start over</button>';
-    if(tabIdx>0) h += '<button type="button" class="demo-btn ghost" data-act="back">← Back</button>';
-    h += '</div><div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><span class="demo-msg" id="demo-msg"></span><button type="button" class="demo-btn" data-act="next">Update'+(tabIdx<ORDER.length-1?' &amp; next tab →':' &amp; finish')+'</button></div></div></div></div>';
+    h += '<div class="demo-legend"><span style="background:#F6E2A6;color:#7A5A12;">Fill in</span><span style="background:rgba(46,140,87,0.15);color:#1F6B43;">Filled automatically</span><span style="background:rgba(24,84,168,0.1);color:var(--blue);">If you know it</span><span style="background:var(--silver-light);color:var(--ink-soft);">Later</span><span style="background:#fff;border:1px solid var(--border);color:var(--ink-soft);">White: not needed for this client</span></div>';
+    var title = vals.name || vals.contact || 'New opportunity';
+    h += '<div class="ghl-modal"><div class="ghl-head"><div class="ghl-title">Edit &quot;'+esc(title)+'&quot;</div><button type="button" class="ghl-x" data-act="restart" aria-label="Close and start over">&times;</button>';
+    h += '<p class="ghl-sub">Add and edit opportunity details, tasks, notes and appointments.</p></div>';
+    h += '<div class="ghl-body"><nav class="ghl-nav" aria-label="Card tabs">';
+    NAV.forEach(function(n){
+      var idx = n[1] ? ORDER.indexOf(n[1]) : -1;
+      if(idx<0){ h += '<span class="ghl-navitem off" title="'+esc(n[2]||'Not part of this practice.')+'">'+esc(n[0])+'</span>'; return; }
+      var c = idx===tabIdx ? ' active' : (idx<tabIdx || idx<=maxIdx ? ' done' : ' next');
+      h += '<button type="button" class="ghl-navitem step'+c+'" data-nav="'+idx+'"'+(idx>maxIdx?' disabled':'')+'>'+esc(n[0])+'</button>';
+    });
+    h += '<div class="ghl-manage">&#9881; Manage fields</div></nav>';
+    var fl = tabFields(t);
+    h += '<div class="ghl-main"><div class="ghl-mainhead"><span>'+esc(fl[0].sec)+'</span><span class="ghl-hide"><span class="ghl-box"></span>Hide empty fields</span></div>';
+    h += '<p class="demo-tabnote">'+esc(TAB_NOTES[t])+'</p><div class="ghl-grid">';
+    fl.slice(1).forEach(function(f){ h += f.sec ? '<div class="ghl-sec">'+esc(f.sec)+'</div>' : fieldHtml(f); });
+    h += '</div></div></div>';
+    h += '<div class="ghl-foot"><div class="ghl-meta">Practice card &middot; nothing here is saved<br>Step '+(tabIdx+1)+' of '+ORDER.length+': '+esc(TAB_NAMES[t])+'</div>';
+    h += '<div class="ghl-btns"><span class="demo-msg" id="demo-msg"></span>';
+    if(tabIdx>0) h += '<button type="button" class="demo-btn ghost" data-act="back">&larr; Back</button>';
+    h += '<button type="button" class="demo-btn ghost" data-act="restart">Cancel</button>';
+    h += '<button type="button" class="demo-btn ghl-update" data-act="next">Update</button></div></div></div></div>';
     h += sideHtml() + '</div>';
     root.innerHTML = h;
     bind();
@@ -1866,8 +1990,14 @@
           var first = root.querySelector('.f-todo.bad input, .f-todo.bad select'); if(first) first.focus();
           return;
         }
-        if(tabIdx < ORDER.length-1){ tabIdx++; renderTab(); window.scrollTo({top:0}); }
+        if(tabIdx < ORDER.length-1){ tabIdx++; if(tabIdx>maxIdx) maxIdx=tabIdx; renderTab(); window.scrollTo({top:0}); }
         else renderDone();
+      });
+    });
+    root.querySelectorAll('[data-nav]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = +b.getAttribute('data-nav');
+        if(i<=maxIdx && i!==tabIdx){ tabIdx=i; renderTab(); }
       });
     });
   }
