@@ -769,7 +769,7 @@
           <div class="flow-dest">Lands in: <strong>10Yi Buying Power → 1ST Contact 24Hrs</strong></div>
           <ul>
             <li>The card is created automatically and assigned to the EAM chosen on the form.</li>
-            <li>Source is filled in automatically as <strong>[EAM Name]-Form</strong>. Leave it as is.</li>
+            <li>Source is filled in automatically: <strong>BDO</strong> if a BDO is picked on the form, otherwise <strong>EAM</strong>. Source Detail shows the form it came through (for example, <em>Leo-Form</em>). See the box below.</li>
             <li>The card moves to <strong>20 Min Intro Meeting</strong> on its own once the intro is booked on the EAM's 20-minute calendar. If it didn't move, move it yourself.</li>
             <li>Fill in the <strong>Booking Date</strong>.</li>
           </ul>
@@ -796,6 +796,18 @@
             <li>Already booked for the 20-minute intro → start it in 20 Min Intro Meeting.</li>
           </ul>
         </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">How the Booking Hub sets Source</div>
+        <p>The Booking Hub form asks <strong>Business Developer (BDO)</strong>. Whatever is picked there goes straight into the card's BDO field, and the CRM uses it to set Source:</p>
+        <ul>
+          <li><strong>A BDO is picked</strong> → Source = <strong>BDO</strong>.</li>
+          <li><strong>None, or left blank</strong> → Source = <strong>EAM</strong>.</li>
+          <li>Either way, <strong>Source Detail</strong> = the form it came through (for example, <em>Leo-Form</em>), and the <strong>EAM</strong> field is filled in.</li>
+        </ul>
+        <p>Source can take a couple of minutes to switch to BDO after the card is created.</p>
+        <p class="callout-sub"><strong>Automatic doesn't mean always right.</strong> The CRM only knows what the form says. If it's wrong, fix the card yourself. For example, a BD told the EAM about the client, but the form says None: change Source to <strong>BDO</strong> and pick the BDO in Team Information. Or a BDO was picked by mistake: change Source to <strong>EAM</strong> and set the BDO field to None. The CRM won't change it back.</p>
       </div>
 
       <div class="callout">
@@ -995,7 +1007,7 @@
             <tr><td class="term">Realtor</td><td>Realtor (name and company)</td><td>—</td></tr>
             <tr><td class="term">Builder</td><td>Builder/Developer</td><td>—</td></tr>
             <tr><td class="term">Referral Other</td><td>Referral (Other than Realtor): the person's name</td><td>What kind: Past Client, Account – [name], Business Partner – [company], Event – [event name and date], Network</td></tr>
-            <tr><td class="term">[EAM Name]-Form <span class="tag-pill">Automatic</span></td><td>Equity Asset Manager (and the BDO, if a BDO booked it)</td><td>—</td></tr>
+            <tr><td class="term">Booking Hub form <span class="tag-pill">Automatic</span></td><td>Source is set to <strong>BDO</strong> if a BDO is picked on the form (the BDO field is filled in from the form), otherwise <strong>EAM</strong>. The EAM field is always filled in. Fix it if it's wrong.</td><td>[EAM Name]-Form (automatic)</td></tr>
             <tr><td class="term">10Yi Site <span class="tag-pill">Automatic</span></td><td>Equity Asset Manager working the client</td><td>—</td></tr>
           </tbody>
         </table>
@@ -1169,7 +1181,7 @@
             <tr><td class="term">Realtor</td><td>Lead was referred to EMB by a Realtor or Real Estate Agent. Fill in <strong>Realtor</strong> with their name and company.</td></tr>
             <tr><td class="term">Builder</td><td>Lead was referred by a builder or developer. Fill in <strong>Builder/Developer</strong>.</td></tr>
             <tr><td class="term">Referral Other</td><td>Anyone or anything that doesn't have its own Team Information field: a past client, an account (employer, hospital, association), a business partner, an event, or networking. Fill in <strong>Referral (Other than Realtor)</strong> with the person's name, and write what kind it was in <strong>Source Detail</strong>: <em>Past Client</em>, <em>Account – [name]</em>, <em>Business Partner – [company]</em>, <em>Event – [event name and date]</em>, or <em>Network</em>.</td></tr>
-            <tr><td class="term">[EAM Name]-Form</td><td><strong>Filled in automatically</strong> with the name of the EAM the lead was booked with (for example, <em>Leo-Form</em>) when a lead is booked through the <strong>10Yi Booking Hub</strong> form, whether a BDO or an EAM booked it. Don't change it. If a BDO booked it, make sure they're selected in <strong>Business Developer (BDO)</strong>.</td></tr>
+            <tr><td class="term">Booking Hub form</td><td><strong>Filled in automatically.</strong> The Booking Hub form asks who the BDO is, and that answer goes straight into <strong>Business Developer (BDO)</strong>. If a BDO is picked, Source is set to <strong>BDO</strong>. If the form says None or is left blank, Source is set to <strong>EAM</strong>. Either way, Source Detail shows the form it came through (for example, <em>Leo-Form</em>) and the EAM field is filled in. <strong>If it's wrong, fix it:</strong> for example, a BD told you about the client but the form says None. Change Source to BDO and pick the BDO.</td></tr>
             <tr><td class="term">10Yi Site</td><td><strong>Filled in automatically</strong> when a client fills out the form on the 10Yi website. Don't change it.</td></tr>
           </tbody>
         </table>
@@ -1221,13 +1233,13 @@
       <div class="example-card">
         <div class="ex-label">Example 1 — BDO Booking Through the 10Yi Booking Hub</div>
         <p>A BDO submits the 10Yi Booking Hub form and books the client's 20-minute intro meeting with an EAM.</p>
-        <div class="crm-line">Source: [EAM Name]-Form (filled in automatically)<br>Team Information → Business Developer (BDO): [BDO Name]<br>Team Information → Equity Asset Manager: [EAM selected on the form]</div>
+        <div class="crm-line">Source: BDO (automatic, because a BDO was picked on the form)<br>Source Detail: [EAM Name]-Form (automatic)<br>Team Information → Business Developer (BDO): [BDO picked on the form] (automatic)<br>Team Information → Equity Asset Manager: [EAM selected on the form] (automatic)</div>
       </div>
       <div class="example-card">
         <div class="ex-label">Example 2 — EAM Booking Through the 10Yi Booking Hub</div>
-        <p>An EAM on the go uses the same Booking Hub form for their own lead.</p>
-        <div class="crm-line">Source: [EAM Name]-Form (filled in automatically)<br>Team Information → Equity Asset Manager: [EAM Name]</div>
-        <p style="margin-top:10px;">Nothing to change. Booking Hub leads are always [EAM Name]-Form.</p>
+        <p>An EAM on the go uses the same Booking Hub form for their own lead and picks <strong>None</strong> for BDO.</p>
+        <div class="crm-line">Source: EAM (automatic)<br>Source Detail: [EAM Name]-Form (automatic)<br>Team Information → Equity Asset Manager: [EAM Name] (automatic)</div>
+        <p style="margin-top:10px;">Nothing to change, unless a BD actually sent the client to the EAM. Then change Source to <strong>BDO</strong> and pick the BDO in Team Information.</p>
       </div>
       <div class="example-card">
         <div class="ex-label">Example 3 — LO Self-Generated Lead</div>
@@ -1265,7 +1277,7 @@
         <li>Do not change Source simply because the lead is reassigned to another LO, EAM, processor, or team member.</li>
         <li>Put the specific person in the Team Information field the Source points to. For Referral Other, write what kind of referral it was (Past Client, Account, Business Partner, Event, Network) in Source Detail. Ongoing client updates go in the Notes tab instead.</li>
         <li>For internally generated leads, always select the EMB team member responsible in the Team Information tab.</li>
-        <li>[EAM Name]-Form (Booking Hub) and 10Yi Site (website) are filled in automatically. Don't change them.</li>
+        <li>Booking Hub leads get Source <strong>BDO</strong> or <strong>EAM</strong> automatically from the BDO answer on the form, with Source Detail [EAM Name]-Form. Website leads get <strong>10Yi Site</strong>. Check them, and fix them only if they're wrong.</li>
         <li>Do not guess the Source. If uncertain, verify before selecting it.</li>
         <li>If no other Source fits, use Referral Other and explain it in Source Detail.</li>
         <li>Because Source information may affect lead attribution and compensation, changes should be made carefully and only when correcting inaccurate information.</li>
@@ -1286,7 +1298,7 @@
       <div class="qa-row"><div class="q">1. Who or what originally brought this lead to EMB?</div><div class="a">Type the appropriate SOURCE</div></div>
       <div class="qa-row"><div class="q">2. Can I identify the specific person, account, campaign, event, or organization?</div><div class="a">Put the name in the Team Information field the Source points to (and, for Referral Other, what kind it was in Source Detail). Also fill in every other Team Information field that applies, even if that person is not the source.</div></div>
       <div class="qa-row"><div class="q">3. Did an EMB team member generate the lead or relationship?</div><div class="a">Select them in TEAM INFORMATION and set them as OWNER</div></div>
-      <div class="qa-row"><div class="q">4. Did this come through the 10Yi Booking Hub?</div><div class="a">It says [EAM Name]-Form automatically. Leave it.</div></div>
+      <div class="qa-row"><div class="q">4. Did this come through the 10Yi Booking Hub?</div><div class="a">Source is set for you: BDO if the form names a BDO, otherwise EAM. Source Detail says [EAM Name]-Form. Make sure it's right, and fix it if it isn't.</div></div>
       <div class="qa-row"><div class="q">5. Who will actually work/originate the mortgage?</div><div class="a">Select the Loan Officer in Team Information, without changing the original Source</div></div>
 
       <div class="callout" style="margin-top:28px;">
@@ -1332,7 +1344,7 @@
 
       <div class="field-group">
         <h3>Source <span class="tag-pill">Required</span></h3>
-        <p>The SOURCE field must be filled out on every opportunity — e.g. <strong>BDO</strong> or <strong>EAM</strong> when entered manually. Booking Hub leads are filled in automatically as <strong>[EAM Name]-Form</strong> and website leads as <strong>10Yi Site</strong>; leave those as they are.</p>
+        <p>The SOURCE field must be filled out on every opportunity — e.g. <strong>BDO</strong> or <strong>EAM</strong> when entered manually. Booking Hub leads are filled in automatically (<strong>BDO</strong> if the form names a BDO, otherwise <strong>EAM</strong>, with Source Detail <strong>[EAM Name]-Form</strong>) and website leads as <strong>10Yi Site</strong>. Check them, and correct them if they're wrong.</p>
         <a class="cross-link" onclick="showScreen('sourcing')" href="#sourcing">📎 See the full Contact Sourcing Guidelines →</a>
       </div>
 
@@ -1400,7 +1412,7 @@
         <h3>Booking the 20-Minute Intro Meeting</h3>
         <p>There are two ways to book:</p>
         <ul>
-          <li><strong>10Yi Booking Hub (recommended):</strong> open the link from the email titled <em>"Your 10Yi Booking Hub"</em> (check your inbox, Other, and Junk) — add it to your phone's home screen to book on the go. Choose the asset manager, enter the client's first and last name, phone, and email, select your name, choose New or Existing Business, and add any useful notes (homeowner, financial details, etc.). Press <strong>Submit</strong>, then pick a time slot from the EAM's availability. The opportunity is created in GoHighLevel automatically with Source <strong>[EAM Name]-Form</strong>.</li>
+          <li><strong>10Yi Booking Hub (recommended):</strong> open the link from the email titled <em>"Your 10Yi Booking Hub"</em> (check your inbox, Other, and Junk) — add it to your phone's home screen to book on the go. Choose the asset manager, enter the client's first and last name, phone, and email, pick the BDO in <strong>Business Developer (BDO)</strong> (yourself if you're the BDO, or <strong>None</strong> if no BDO was involved), choose New or Existing Business, and add any useful notes (homeowner, financial details, etc.). Press <strong>Submit</strong>, then pick a time slot from the EAM's availability. The opportunity is created in GoHighLevel automatically, with Source <strong>BDO</strong> or <strong>EAM</strong> based on your BDO answer and Source Detail <strong>[EAM Name]-Form</strong>.</li>
           <li><strong>Manually in GoHighLevel:</strong> open the opportunity, click the <strong>contact icon</strong> to go to the contact page, then in the right-side menu click <strong>Appointments → Add appointment</strong>. Choose the calendar of the EAM you're booking with and pick an available time slot — the contact's name is added automatically.</li>
         </ul>
         <p>Either way, you still need to fill in the <strong>Booking Date</strong> on the card.</p>
@@ -1487,7 +1499,7 @@
   var OPT = {
     pipeline: Object.keys(STAGES),
     status: ['Open','Won','Lost','Abandoned'],
-    source: ['EAM','BDO','LO','Realtor','Builder','Referral Other','[EAM Name]-Form','10Yi Site'],
+    source: ['EAM','BDO','LO','Realtor','Builder','Referral Other','10Yi Site'],
     oppType: ['New Business','Existing Business'],
     yesNo: ['Yes','No'],
     purpose: ['Purchase','Refinance','Cash-Out Refinance','HELOC'],
@@ -1526,7 +1538,7 @@
       id:'form', icon:'B', title:'10Yi Booking Hub form', tag:'10Yi',
       blurb:'A teammate booked the client with an EAM using the Booking Hub link.',
       you:'Leo, the EAM',
-      story:'A teammate used the <strong>10Yi Booking Hub</strong> to book <strong>Carlos Rivera</strong> with you. Business Developer <strong>Daniel Ortiz</strong> brought Carlos in. His 20-minute intro is on <strong>November 12</strong>. Carlos wants to buy his first home, a single-family house he’ll live in.',
+      story:'Business Developer <strong>Daniel Ortiz</strong> used the <strong>10Yi Booking Hub</strong> to book <strong>Carlos Rivera</strong> with you and picked himself as the BDO on the form. Realtor <strong>Ana Ruiz</strong> is helping Carlos look for a home. His 20-minute intro is on <strong>November 12</strong>. Carlos wants to buy his first home, a single-family house he’ll live in.',
       tabs:{
         details:[
           F('contact','Primary contact','text','auto',{value:'Carlos Rivera'}),
@@ -1538,18 +1550,18 @@
             hint:'Moved here on its own when the intro was booked on your 20-minute calendar. If it didn’t move, move it yourself.'}),
           F('status','Status','select','auto',{opts:'status',value:'Open'}),
           F('owner','Owner','text','auto',{value:'Leo',hint:'The form assigns the card to the EAM picked on the form.'}),
-          F('source','Source','select','auto',{opts:'source',value:'[EAM Name]-Form',display:'Leo-Form',hint:'The form sets this to [EAM Name]-Form. Leave it as is.'}),
-          F('sourceDetail','Source Detail','text','na',{hint:'Not needed: the Source already explains where he came from.'}),
+          F('source','Source','select','auto',{opts:'source',value:'BDO',hint:'A BDO was picked on the form, so Source was set to BDO. If the form was wrong, change it.'}),
+          F('sourceDetail','Source Detail','text','auto',{value:'Leo-Form',hint:'Shows which Booking Hub form it came through.'}),
           F('oppType','Opportunity Type','select','auto',{opts:'oppType',value:'New Business'}),
           F('value','Value','text','optional',{hint:'Add the estimated loan amount if you know it.'})
         ],
         team:[
           F('eam','Equity Asset Manager (EAM)','text','auto',{value:'Leo'}),
-          F('bdo','Business Developer (BDO)','text','todo',{match:['ortiz','daniel'],
-            hint:'Daniel Ortiz brought Carlos in. Fill him in even though he isn’t the Source.',
-            err:'Who brought Carlos in? Check the story.'})
+          F('bdo','Business Developer (BDO)','text','auto',{value:'Daniel Ortiz',hint:'Filled in from the BDO answer on the form.'}),
+          F('realtor','Realtor','text','todo',{match:['ruiz','ana'],
+            hint:'Ana Ruiz isn’t the Source, but she’s part of the deal, so fill her in.',
+            err:'Who is helping Carlos find a home? Check the story.'})
         ].concat(laterTeam()).concat([
-          F('realtor','Realtor','text','na',{hint:'No realtor in this story.'}),
           F('referral','Referral (Other than Realtor)','text','na'),
           F('builder','Builder/Developer','text','na')
         ]),
