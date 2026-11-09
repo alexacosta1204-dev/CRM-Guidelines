@@ -561,6 +561,89 @@
     .hub-hero h1{font-size:26px;}
     main{padding:0 16px 60px;}
   }
+
+  /* ---------- Demo (interactive practice) ---------- */
+  nav.header-nav button.nav-demo{background:var(--blue);color:#fff;border:none;border-radius:999px;padding:6px 16px;}
+  nav.header-nav button.nav-demo:hover{background:var(--blue-light);color:#fff;}
+  nav.header-nav button.nav-demo.active{background:var(--navy);border-bottom-color:transparent;}
+  .demo-pick{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0 8px;}
+  .demo-option{text-align:left;background:#fff;border:1px solid var(--border);border-top:4px solid var(--blue);border-radius:12px;padding:16px 18px;cursor:pointer;font:inherit;color:var(--ink);transition:box-shadow .15s,transform .15s;}
+  .demo-option:hover{box-shadow:0 6px 18px rgba(12,45,94,.12);transform:translateY(-1px);}
+  .demo-option:focus-visible{outline:3px solid var(--blue-light);outline-offset:2px;}
+  .demo-option .flow-head{margin-bottom:6px;}
+  .demo-option p{margin:0;font-size:14px;color:var(--ink-soft);}
+  .demo-option .demo-tag{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--navy);background:var(--silver-light);border-radius:999px;padding:3px 10px;}
+  .demo-wrap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:20px;align-items:start;margin-top:18px;}
+  .demo-wrap>*{min-width:0;}
+  .demo-story{background:rgba(24,84,168,0.07);border-left:4px solid var(--blue);border-radius:10px;padding:14px 16px;margin:0 0 16px;font-size:15px;}
+  .demo-story strong{color:var(--navy-deep);}
+  .demo-card{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .demo-tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--border);background:#FAFBFC;scrollbar-width:none;}
+  .demo-tabs::-webkit-scrollbar{display:none;}
+  .demo-tab{flex:0 0 auto;background:none;border:none;border-bottom:3px solid transparent;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink-soft);padding:12px 14px;cursor:default;white-space:nowrap;}
+  .demo-tab.current{color:var(--blue);border-bottom-color:var(--blue);background:#fff;}
+  .demo-tab.done{color:#1F6B43;}
+  .demo-tab.done::before{content:"✓ ";}
+  .demo-body{padding:18px 20px 8px;}
+  .demo-tabnote{margin:0 0 14px;font-size:14px;color:var(--ink-soft);}
+  .demo-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px 18px;}
+  .demo-field{border-radius:10px;padding:10px 12px;border:1px solid transparent;}
+  .demo-field label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;font-weight:700;color:var(--navy-deep);margin-bottom:6px;}
+  .demo-badge{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:2px 8px;white-space:nowrap;}
+  .demo-field input[type=text],.demo-field input[type=date],.demo-field select{width:100%;font:inherit;font-size:14px;padding:8px 10px;border:1px solid #CBD2DC;border-radius:8px;background:#fff;color:var(--ink);}
+  .demo-field input:focus,.demo-field select:focus{outline:2px solid var(--blue-light);outline-offset:1px;border-color:var(--blue-light);}
+  .demo-check{display:flex;align-items:center;gap:8px;font-size:14px;}
+  .demo-check input{width:18px;height:18px;}
+  .demo-hint{margin:6px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.45;}
+  .demo-err{margin:6px 0 0;font-size:12.5px;color:#B42318;font-weight:600;}
+  .f-auto{background:rgba(46,140,87,0.07);border-color:rgba(46,140,87,0.25);}
+  .f-auto .demo-badge{background:rgba(46,140,87,0.15);color:#1F6B43;}
+  .f-auto input,.f-auto select{background:#F3F8F5 !important;color:var(--ink-soft) !important;}
+  .f-todo{background:#FFF9E8;border-color:#E9C46A;animation:demoPulse 1.8s ease-in-out infinite;}
+  .f-todo .demo-badge{background:#F6E2A6;color:#7A5A12;}
+  .f-todo.ok{animation:none;background:rgba(46,140,87,0.07);border-color:rgba(46,140,87,0.35);}
+  .f-todo.ok .demo-badge{background:rgba(46,140,87,0.15);color:#1F6B43;}
+  .f-todo.bad{animation:none;background:#FEF3F2;border-color:#F04438;}
+  .f-later{background:#F6F7F9;border-color:var(--border);}
+  .f-later .demo-badge{background:var(--silver-light);color:var(--ink-soft);}
+  .f-later input,.f-later select{background:#F6F7F9 !important;color:var(--silver) !important;}
+  .f-optional .demo-badge{background:rgba(24,84,168,0.1);color:var(--blue);}
+  .f-optional{border-color:var(--border);}
+  @keyframes demoPulse{0%,100%{box-shadow:0 0 0 0 rgba(233,196,106,0);}50%{box-shadow:0 0 0 4px rgba(233,196,106,.45);}}
+  @media (prefers-reduced-motion: reduce){.f-todo{animation:none;}}
+  .demo-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px 18px;border-top:1px solid var(--border);margin-top:14px;}
+  .demo-btn{font:inherit;font-size:14px;font-weight:700;border-radius:8px;padding:10px 18px;cursor:pointer;border:1px solid var(--blue);background:var(--blue);color:#fff;}
+  .demo-btn:hover{background:var(--blue-light);}
+  .demo-btn.ghost{background:#fff;color:var(--navy);border-color:var(--border);}
+  .demo-btn.ghost:hover{border-color:var(--blue);color:var(--blue);}
+  .demo-msg{font-size:13.5px;font-weight:600;color:#B42318;}
+  .demo-side{position:sticky;top:90px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;}
+  .demo-side h4{margin:0 0 4px;font-size:14px;color:var(--navy-deep);}
+  .demo-side .demo-progress{height:6px;background:var(--silver-light);border-radius:999px;overflow:hidden;margin:8px 0 14px;}
+  .demo-side .demo-progress span{display:block;height:100%;background:var(--blue);transition:width .3s;}
+  .demo-steps{list-style:none;margin:0;padding:0;}
+  .demo-steps>li{font-size:13.5px;font-weight:600;color:var(--ink-soft);padding:6px 0;border-bottom:1px solid var(--border);}
+  .demo-steps>li:last-child{border-bottom:none;}
+  .demo-steps>li.current{color:var(--blue);}
+  .demo-steps>li.done{color:#1F6B43;}
+  .demo-steps>li.done::before{content:"✓ ";}
+  .demo-steps ul{list-style:none;margin:6px 0 2px;padding:0 0 0 4px;}
+  .demo-steps ul li{font-size:12.5px;font-weight:500;color:var(--ink);padding:2px 0 2px 22px;position:relative;}
+  .demo-steps ul li::before{content:"";position:absolute;left:0;top:5px;width:13px;height:13px;border:2px solid #CBD2DC;border-radius:4px;}
+  .demo-steps ul li.ok::before{background:#2E8C57;border-color:#2E8C57;}
+  .demo-steps ul li.ok::after{content:"";position:absolute;left:4px;top:7px;width:4px;height:7px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+  .demo-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;font-size:12px;}
+  .demo-legend span{border-radius:999px;padding:3px 10px;font-weight:700;}
+  .demo-done{text-align:center;padding:28px 20px;}
+  .demo-done h2{margin:6px 0 8px;color:var(--navy-deep);}
+  .demo-done p{color:var(--ink-soft);max-width:560px;margin:0 auto 18px;}
+  .demo-done .demo-big{font-size:42px;}
+  @media (max-width:820px){
+    .demo-wrap{grid-template-columns:minmax(0,1fr);}
+    .demo-side{position:static;order:-1;}
+    .demo-body{padding:16px 14px 6px;}
+    .demo-actions{padding:14px;}
+  }
 </style>
 </head>
 <body>
@@ -578,6 +661,7 @@
       <button data-target="tagging" onclick="showScreen('tagging')">Tagging</button>
       <button data-target="sourcing" onclick="showScreen('sourcing')">Sourcing</button>
       <button data-target="eam" onclick="showScreen('eam')">EAM/LO Checklist</button>
+      <button class="nav-demo" data-target="demo" onclick="showScreen('demo')">Demo</button>
     </nav>
   </div>
 </header>
@@ -593,6 +677,15 @@
     </div>
 
     <div class="card-grid">
+      <div class="guide-card" onclick="showScreen('demo')">
+        <div class="icon-badge">D</div>
+        <div>
+          <span class="meta-tag">Practice</span>
+          <h3>Card Demo</h3>
+        </div>
+        <p>Practice filling in an opportunity card. Pick how the lead came in, then click through each tab with a checklist.</p>
+        <span class="read-more">Start the demo →</span>
+      </div>
       <div class="guide-card" onclick="showScreen('pipeline')">
         <div class="icon-badge">P</div>
         <div>
@@ -727,7 +820,7 @@
           <span class="chip">10Yi Implementation</span>
           <span class="chip">Buying Power Letter</span>
         </div>
-        <p class="lane-note">For 10Yi clients. When the card reaches Outcome, the Outcome Date and 10YI Strategy must be filled in. The CRM reminds the owner and EAM if they're still blank a business day later.</p>
+        <p class="lane-note">For 10Yi clients. When the card reaches Outcome, the Outcome Date and 10YI Strategy must be filled in. The CRM reminds the owner and EAM if they're left blank.</p>
       </div>
 
       <div class="lane">
@@ -764,14 +857,15 @@
       <h3>How long a card should sit in a stage</h3>
       <div class="table-wrap">
         <table class="def-table">
-          <thead><tr><th>Stage label</th><th>Counts as</th><th>What happens if it sits too long</th></tr></thead>
+          <thead><tr><th>Stage label</th><th>Move the card within</th><th>What happens if it sits too long</th></tr></thead>
           <tbody>
-            <tr><td class="term">24Hrs / 24-48Hrs</td><td>3 business days</td><td>The owner (and the EAM in 10Yi Buying Power and Pre Approval) gets an alert to follow up or move the card.</td></tr>
-            <tr><td class="term">1-3 Days</td><td>5 business days</td><td>Same alert after 5 business days.</td></tr>
+            <tr><td class="term">24Hrs</td><td>24 hours</td><td>The owner (and the EAM in 10Yi Buying Power and Pre Approval) gets an alert to follow up or move the card.</td></tr>
+            <tr><td class="term">24-48Hrs</td><td>48 hours</td><td>Same alert.</td></tr>
+            <tr><td class="term">1-3 Days</td><td>3 days</td><td>Same alert.</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Business days skip weekends. A card that enters a 24Hrs stage on Wednesday is due by the next Monday; one that enters on Monday is due by Thursday.</p>
+      <p>The time in the stage name is the deadline. Move the card forward, or update it, before that time runs out.</p>
 
       <h2><span class="num">3</span>Moving a Card to the Active Loan Pipeline — the Phase Tab</h2>
       <p>You don't drag a card into the Active Loan Pipeline. You tell the CRM it's ready, and it moves the card for you.</p>
@@ -1338,6 +1432,18 @@
     </article>
   </section>
 
+  <!-- ================= DEMO ================= -->
+  <section class="screen" id="screen-demo">
+    <div class="article-header">
+      <button class="back-link" onclick="showScreen('hub')">← Back to Guidelines Hub</button>
+      <div class="article-kicker">Practice · Opportunity Card</div>
+      <h1>Card Demo</h1>
+      <p class="subtitle">Pick how the lead came in, then fill in the card one tab at a time</p>
+    </div>
+
+    <div id="demo-root"></div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -1359,15 +1465,413 @@
 
   (function init(){
     var hash = (window.location.hash || '').replace('#','');
-    var valid = ['hub','pipeline','tagging','sourcing','eam'];
+    var valid = ['hub','pipeline','tagging','sourcing','eam','demo'];
     showScreen(valid.indexOf(hash) !== -1 ? hash : 'hub');
   })();
 
   window.addEventListener('hashchange', function(){
     var hash = (window.location.hash || '').replace('#','');
-    var valid = ['hub','pipeline','tagging','sourcing','eam'];
+    var valid = ['hub','pipeline','tagging','sourcing','eam','demo'];
     if(valid.indexOf(hash) !== -1){ showScreen(hash); }
   });
+</script>
+
+<script>
+(function(){
+  var STAGES = {
+    '10Yi Buying Power': ['1ST Contact 24Hrs','20 Min Intro Meeting','Gathering Docs 1-3 Days','10Yi-Under Analysis 24-48Hrs','10Yi Outcome 24-48Hrs','10Yi Implementation','Buying Power Letter'],
+    'Pre Approval (No 10Yi)': ['1ST Contact','Gathering Docs 1-3 Days','Analysis for PAL','PAL Issued 60 Days','PAL Overdue'],
+    'Active Loan Pipeline': ['A. Contract/Refi/HELOC 24hrs','B. Opening/Processing 24hrs','C. Underwriting 2 Touches','D. Clear to Close','E. Closed','Withdrawn/Denied/Cancelled']
+  };
+  var OPT = {
+    pipeline: Object.keys(STAGES),
+    status: ['Open','Won','Lost','Abandoned'],
+    source: ['EAM','BDO','LO','Realtor','Builder','Referral Other','[EAM Name]-Form','10Yi Site'],
+    oppType: ['New Business','Existing Business'],
+    yesNo: ['Yes','No'],
+    purpose: ['Purchase','Refinance','Cash-Out Refinance','HELOC'],
+    property: ['Single Family','Condo','Townhouse','Multi-Family'],
+    occupancy: ['Primary Residence','Second Home','Investment'],
+    strategy: ['(set at Outcome)']
+  };
+
+  /* Field kinds: auto = filled by the CRM; todo = they must fill it; later = fill at a later stage;
+     optional = fill if you know it; na = not in this story. */
+  function F(key,label,type,kind,o){ o=o||{}; o.key=key; o.label=label; o.type=type; o.kind=kind; return o; }
+
+  var TAB_NOTES = {
+    details: 'The main tab. Click Update before moving to another tab, or your changes are lost.',
+    team: 'Fill in every person who is part of this client’s deal, not only the one that matches Source.',
+    tenyi: '10Yi (Yes/No) is never blank. The dates and strategy get filled in as the card moves through the pipeline.',
+    loan: 'Fill in what you know now. LOAN ID# comes from Arive once the loan is opened.',
+    phase: 'This box moves the card to the Active Loan Pipeline. Check it only when a contract, refi, or HELOC is ready to start.'
+  };
+  var TAB_NAMES = {details:'Opportunity details', team:'Team Information', tenyi:'10Yi Program Information', loan:'Loan Information', phase:'Phase'};
+
+  function phaseTab(){
+    return [F('ready','Ready For Active Loan Pipeline','check','todo',{expect:false,
+      hint:'Leave it unchecked. This client doesn’t have a contract, refi, or HELOC ready yet.',
+      err:'Uncheck it. Checking it now would move the card to Active Loan too early.'})];
+  }
+  function laterTeam(){
+    return [
+      F('eaa','Equity Asset Analyst (EAA)','text','later',{hint:'Filled in when the analysis starts.'}),
+      F('lo','Loan Officer (LO)','text','later',{hint:'Filled in once a loan officer is working the loan.'})
+    ];
+  }
+
+  var SCENARIOS = [
+    {
+      id:'form', icon:'B', title:'10Yi Booking Hub form', tag:'10Yi',
+      blurb:'A teammate booked the client with an EAM using the Booking Hub link.',
+      you:'Leo, the EAM',
+      story:'A teammate used the <strong>10Yi Booking Hub</strong> to book <strong>Carlos Rivera</strong> with you. Business Developer <strong>Daniel Ortiz</strong> brought Carlos in. His 20-minute intro is on <strong>November 12</strong>. Carlos wants to buy his first home, a single-family house he’ll live in.',
+      tabs:{
+        details:[
+          F('contact','Primary contact','text','auto',{value:'Carlos Rivera'}),
+          F('email','Email','text','auto',{value:'carlos.rivera@example.com'}),
+          F('phone','Phone','text','auto',{value:'(305) 555-0142'}),
+          F('name','Opportunity name','text','auto',{value:'Carlos Rivera'}),
+          F('pipeline','Pipeline','select','auto',{opts:'pipeline',value:'10Yi Buying Power'}),
+          F('stage','Stage','stage','todo',{value:'1ST Contact 24Hrs',expect:'20 Min Intro Meeting',
+            hint:'The intro is booked, so move the card from 1ST Contact 24Hrs to 20 Min Intro Meeting.',
+            err:'His intro is booked. Move him to 20 Min Intro Meeting.'}),
+          F('status','Status','select','auto',{opts:'status',value:'Open'}),
+          F('owner','Owner','text','auto',{value:'Leo',hint:'The form assigns the card to the EAM picked on the form.'}),
+          F('source','Source','select','auto',{opts:'source',value:'[EAM Name]-Form',display:'Leo-Form',hint:'The form sets this to [EAM Name]-Form. Leave it as is.'}),
+          F('sourceDetail','Source Detail','text','na',{hint:'Not needed: the Source already explains where he came from.'}),
+          F('oppType','Opportunity Type','select','auto',{opts:'oppType',value:'New Business'}),
+          F('value','Value','text','optional',{hint:'Add the estimated loan amount if you know it.'})
+        ],
+        team:[
+          F('eam','Equity Asset Manager (EAM)','text','auto',{value:'Leo'}),
+          F('bdo','Business Developer (BDO)','text','todo',{match:['ortiz','daniel'],
+            hint:'Daniel Ortiz brought Carlos in. Fill him in even though he isn’t the Source.',
+            err:'Who brought Carlos in? Check the story.'})
+        ].concat(laterTeam()).concat([
+          F('realtor','Realtor','text','na',{hint:'No realtor in this story.'}),
+          F('referral','Referral (Other than Realtor)','text','na'),
+          F('builder','Builder/Developer','text','na')
+        ]),
+        tenyi:[
+          F('tenyi','10Yi (Yes/No)','select','auto',{opts:'yesNo',value:'Yes'}),
+          F('booking','Booking Date (20-minute intro)','date','todo',{expectMonthDay:'11-12',
+            hint:'The date of his 20-minute intro.',err:'His intro is on November 12.'}),
+          F('outcome','Outcome Date','date','later',{hint:'Filled in when the outcome meeting is booked.'}),
+          F('strategy','10YI Strategy','text','later',{hint:'Filled in at 10Yi Outcome.'}),
+          F('lennar','Lennar Prospect?','select','optional',{opts:'yesNo'})
+        ],
+        loan:[
+          F('loanId','LOAN ID#','text','later',{hint:'Copy it from Arive once the loan is opened.'}),
+          F('purpose','Loan Purpose','select','todo',{opts:'purpose',expect:'Purchase',hint:'He’s buying a home.',err:'He’s buying, so this is a Purchase.'}),
+          F('property','Type of Property','select','todo',{opts:'property',expect:'Single Family',err:'The story says a single-family house.'}),
+          F('occupancy','Occupancy','select','todo',{opts:'occupancy',expect:'Primary Residence',err:'He’ll live in it, so it’s his Primary Residence.'}),
+          F('credit','Est. Credit Score','text','optional')
+        ],
+        phase: phaseTab()
+      }
+    },
+    {
+      id:'website', icon:'W', title:'10Yi website form', tag:'10Yi',
+      blurb:'The client filled out the form on the 10Yi website.',
+      you:'Javier, the EAM',
+      story:'<strong>Ana Torres</strong> filled out the form on the <strong>10Yi website</strong> last night. You’re picking up the lead and you called her today. She hasn’t booked her 20-minute intro yet. She wants to buy a <strong>condo to rent out</strong>.',
+      tabs:{
+        details:[
+          F('contact','Primary contact','text','auto',{value:'Ana Torres'}),
+          F('email','Email','text','auto',{value:'ana.torres@example.com'}),
+          F('phone','Phone','text','auto',{value:'(786) 555-0110'}),
+          F('name','Opportunity name','text','auto',{value:'Ana Torres - 10Yi Website'}),
+          F('pipeline','Pipeline','select','auto',{opts:'pipeline',value:'10Yi Buying Power'}),
+          F('stage','Stage','stage','auto',{value:'1ST Contact 24Hrs',hint:'She hasn’t booked yet, so the card stays here.'}),
+          F('status','Status','select','auto',{opts:'status',value:'Open'}),
+          F('owner','Owner','text','todo',{match:['javier'],
+            hint:'Website leads come in with no owner. Set it right away, or the CRM sends an alert.',
+            err:'You’re taking this lead. Put your name (Javier).'}),
+          F('source','Source','select','auto',{opts:'source',value:'10Yi Site',hint:'Website leads are always 10Yi Site. Leave it as is.'}),
+          F('sourceDetail','Source Detail','text','na'),
+          F('oppType','Opportunity Type','select','todo',{opts:'oppType',expect:'New Business',err:'She’s a new client: New Business.'}),
+          F('value','Value','text','optional')
+        ],
+        team:[
+          F('eam','Equity Asset Manager (EAM)','text','todo',{match:['javier'],hint:'You’re her EAM.',err:'Put your name (Javier).'})
+        ].concat(laterTeam()).concat([
+          F('bdo','Business Developer (BDO)','text','na',{hint:'No BDO in this story.'}),
+          F('realtor','Realtor','text','na'),
+          F('referral','Referral (Other than Realtor)','text','na'),
+          F('builder','Builder/Developer','text','na')
+        ]),
+        tenyi:[
+          F('tenyi','10Yi (Yes/No)','select','todo',{opts:'yesNo',expect:'Yes',hint:'She came from the 10Yi website. Never leave this blank.',err:'Website leads are 10Yi clients: mark Yes.'}),
+          F('booking','Booking Date (20-minute intro)','date','later',{hint:'She hasn’t booked yet. Fill it in when she does.'}),
+          F('outcome','Outcome Date','date','later'),
+          F('strategy','10YI Strategy','text','later'),
+          F('lennar','Lennar Prospect?','select','optional',{opts:'yesNo'})
+        ],
+        loan:[
+          F('loanId','LOAN ID#','text','later',{hint:'Copy it from Arive once the loan is opened.'}),
+          F('purpose','Loan Purpose','select','todo',{opts:'purpose',expect:'Purchase',err:'She’s buying, so this is a Purchase.'}),
+          F('property','Type of Property','select','todo',{opts:'property',expect:'Condo',err:'The story says a condo.'}),
+          F('occupancy','Occupancy','select','todo',{opts:'occupancy',expect:'Investment',err:'She’ll rent it out, so it’s an Investment.'}),
+          F('credit','Est. Credit Score','text','optional')
+        ],
+        phase: phaseTab()
+      }
+    },
+    {
+      id:'manual10', icon:'M', title:'Manual: 10Yi client', tag:'10Yi',
+      blurb:'You add the card yourself with + Add opportunity for a 10Yi client.',
+      you:'Gabriel, the EAM',
+      story:'Realtor <strong>Mike Chen</strong> called and referred <strong>Luis Gómez</strong>, who wants to join the <strong>10Yi program</strong>. You’re creating the card yourself with <strong>+ Add opportunity</strong>. Luis’s phone is <strong>(786) 555-0199</strong> and his email is <strong>luis.gomez@example.com</strong>. He hasn’t booked his intro yet.',
+      tabs:{
+        details:[
+          F('contact','Primary contact','text','todo',{match:['luis'],err:'Add Luis Gómez as the primary contact.'}),
+          F('email','Email','text','todo',{match:['luis.gomez@'],err:'Use the email from the story.'}),
+          F('phone','Phone','text','todo',{match:['555-0199','5550199'],err:'Use the phone number from the story.'}),
+          F('name','Opportunity name','text','todo',{match:['luis'],hint:'The client’s full name.',err:'Name the card after the client: Luis Gómez.'}),
+          F('pipeline','Pipeline','select','todo',{opts:'pipeline',expect:'10Yi Buying Power',hint:'He wants the 10Yi program.',err:'10Yi clients go in 10Yi Buying Power.'}),
+          F('stage','Stage','stage','todo',{expect:'1ST Contact 24Hrs',hint:'New cards start in the first stage.',err:'He hasn’t booked yet, so start him in 1ST Contact 24Hrs.'}),
+          F('status','Status','select','todo',{opts:'status',expect:'Open',err:'A new card is Open.'}),
+          F('owner','Owner','text','todo',{match:['gabriel'],hint:'Set it right away, or the CRM sends an alert.',err:'You brought this lead in: put your name (Gabriel).'}),
+          F('source','Source','select','todo',{opts:'source',expect:'Realtor',hint:'Who sent him to us?',err:'A realtor referred him, so Source is Realtor.'}),
+          F('sourceDetail','Source Detail','text','na',{hint:'Not needed: the realtor’s name goes in Team Information.'}),
+          F('oppType','Opportunity Type','select','todo',{opts:'oppType',expect:'New Business',err:'He’s a new client: New Business.'}),
+          F('value','Value','text','optional')
+        ],
+        team:[
+          F('eam','Equity Asset Manager (EAM)','text','todo',{match:['gabriel'],err:'You’re his EAM: put your name (Gabriel).'}),
+          F('realtor','Realtor','text','todo',{match:['chen','mike'],hint:'Source is Realtor, so the Realtor field needs the realtor’s name.',err:'Put the realtor’s name: Mike Chen.'})
+        ].concat(laterTeam()).concat([
+          F('bdo','Business Developer (BDO)','text','na'),
+          F('referral','Referral (Other than Realtor)','text','na'),
+          F('builder','Builder/Developer','text','na')
+        ]),
+        tenyi:[
+          F('tenyi','10Yi (Yes/No)','select','todo',{opts:'yesNo',expect:'Yes',hint:'He wants the 10Yi program. Never leave this blank.',err:'He’s a 10Yi client: mark Yes.'}),
+          F('booking','Booking Date (20-minute intro)','date','later',{hint:'Fill it in when he books.'}),
+          F('outcome','Outcome Date','date','later'),
+          F('strategy','10YI Strategy','text','later'),
+          F('lennar','Lennar Prospect?','select','optional',{opts:'yesNo'})
+        ],
+        loan:[
+          F('loanId','LOAN ID#','text','later',{hint:'Copy it from Arive once the loan is opened.'}),
+          F('purpose','Loan Purpose','select','todo',{opts:'purpose',expect:'Purchase',err:'He’s buying, so this is a Purchase.'}),
+          F('property','Type of Property','select','optional',{opts:'property',hint:'Not in the story yet. Fill it in when you know.'}),
+          F('occupancy','Occupancy','select','optional',{opts:'occupancy'}),
+          F('credit','Est. Credit Score','text','optional')
+        ],
+        phase: phaseTab()
+      }
+    },
+    {
+      id:'manualpa', icon:'P', title:'Manual: Pre Approval (not 10Yi)', tag:'Not 10Yi',
+      blurb:'You add the card yourself for a traditional purchase or refi.',
+      you:'Javier, the EAM',
+      story:'<strong>Jorge Díaz</strong>, a <strong>past client</strong>, referred his coworker <strong>Sofia Martinez</strong>. Sofia wants a <strong>traditional purchase loan</strong>, not the 10Yi program. You’re creating the card yourself. Loan officer <strong>Ana Pérez</strong> will work her loan. Sofia’s phone is <strong>(305) 555-0177</strong> and her email is <strong>sofia.m@example.com</strong>.',
+      tabs:{
+        details:[
+          F('contact','Primary contact','text','todo',{match:['sofia'],err:'Add Sofia Martinez as the primary contact.'}),
+          F('email','Email','text','todo',{match:['sofia.m@'],err:'Use the email from the story.'}),
+          F('phone','Phone','text','todo',{match:['555-0177','5550177'],err:'Use the phone number from the story.'}),
+          F('name','Opportunity name','text','todo',{match:['sofia'],hint:'The client’s full name.',err:'Name the card after the client: Sofia Martinez.'}),
+          F('pipeline','Pipeline','select','todo',{opts:'pipeline',expect:'Pre Approval (No 10Yi)',hint:'She is not a 10Yi client.',err:'Clients who aren’t 10Yi go in Pre Approval (No 10Yi).'}),
+          F('stage','Stage','stage','todo',{expect:'1ST Contact',hint:'New cards start in the first stage.',err:'Start her in 1ST Contact.'}),
+          F('status','Status','select','todo',{opts:'status',expect:'Open',err:'A new card is Open.'}),
+          F('owner','Owner','text','todo',{match:['javier'],hint:'Set it right away, or the CRM sends an alert.',err:'Put your name (Javier).'}),
+          F('source','Source','select','todo',{opts:'source',expect:'Referral Other',hint:'A past client isn’t a Team Information field.',err:'A past client referred her, so Source is Referral Other.'}),
+          F('sourceDetail','Source Detail','text','todo',{match:['past client'],hint:'Say what kind of referral it was.',err:'Write “Past Client”.'}),
+          F('oppType','Opportunity Type','select','todo',{opts:'oppType',expect:'New Business',err:'She’s a new client: New Business.'}),
+          F('value','Value','text','optional')
+        ],
+        team:[
+          F('eam','Equity Asset Manager (EAM)','text','todo',{match:['javier'],err:'Put your name (Javier).'}),
+          F('lo','Loan Officer (LO)','text','todo',{match:['perez','ana'],hint:'The story names her loan officer.',err:'Put the loan officer’s name: Ana Pérez.'}),
+          F('referral','Referral (Other than Realtor)','text','todo',{match:['diaz','jorge'],hint:'Source is Referral Other, so put the person who referred her here.',err:'Put the past client’s name: Jorge Díaz.'}),
+          F('eaa','Equity Asset Analyst (EAA)','text','later',{hint:'Filled in when the analysis starts.'}),
+          F('bdo','Business Developer (BDO)','text','na'),
+          F('realtor','Realtor','text','na'),
+          F('builder','Builder/Developer','text','na')
+        ],
+        tenyi:[
+          F('tenyi','10Yi (Yes/No)','select','todo',{opts:'yesNo',expect:'No',hint:'Even for clients who aren’t 10Yi, this is never blank.',err:'She isn’t a 10Yi client: mark No.'}),
+          F('booking','Booking Date (20-minute intro)','date','na',{hint:'Leave blank: she isn’t a 10Yi client.'}),
+          F('outcome','Outcome Date','date','na'),
+          F('strategy','10YI Strategy','text','na'),
+          F('lennar','Lennar Prospect?','select','optional',{opts:'yesNo'})
+        ],
+        loan:[
+          F('loanId','LOAN ID#','text','later',{hint:'Copy it from Arive once the loan is opened.'}),
+          F('purpose','Loan Purpose','select','todo',{opts:'purpose',expect:'Purchase',err:'She’s buying, so this is a Purchase.'}),
+          F('property','Type of Property','select','optional',{opts:'property'}),
+          F('occupancy','Occupancy','select','optional',{opts:'occupancy'}),
+          F('credit','Est. Credit Score','text','optional')
+        ],
+        phase: phaseTab()
+      }
+    }
+  ];
+
+  var ORDER = ['details','team','tenyi','loan','phase'];
+  var BADGE = {auto:'Filled automatically', todo:'Fill in', later:'Later', optional:'If you know it', na:''};
+  var root, sc, tabIdx, vals, tried;
+
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function norm(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s+/g,' ').trim(); }
+
+  function isOk(f){
+    var v = vals[f.key];
+    if(f.type==='check') return !!tried[f.key] && (!!v === !!f.expect);
+    if(f.expect!==undefined) return v===f.expect;
+    if(f.expectMonthDay) return !!v && v.slice(5)===f.expectMonthDay;
+    if(f.match){ var n=norm(v).replace(/[()\s]/g,''); var raw=norm(v);
+      return f.match.some(function(m){ var mm=norm(m); return raw.indexOf(mm)!==-1 || n.indexOf(mm.replace(/[()\s]/g,''))!==-1; }); }
+    return !!norm(v);
+  }
+
+  function todos(tab){ return sc.tabs[tab].filter(function(f){ return f.kind==='todo'; }); }
+
+  function renderPick(){
+    var h = '<div class="article-lede">Practice filling in an opportunity card before you do it in the CRM. Pick how the lead came in. Fields the CRM fills in for you show up <strong>green</strong>. Fields you need to fill in <strong>glow yellow</strong>. Each tab has a checklist on the side.</div>';
+    h += '<h2 style="margin-top:28px;color:var(--navy-deep);">How is this opportunity being created?</h2>';
+    h += '<p style="color:var(--ink-soft);margin-top:0;">The Booking Hub form and the website are only for 10Yi clients right now.</p>';
+    h += '<div class="demo-pick">';
+    SCENARIOS.forEach(function(s,i){
+      h += '<button class="demo-option" type="button" data-pick="'+i+'"><div class="flow-head"><span class="flow-icon">'+s.icon+'</span>'+esc(s.title)+'</div><p>'+esc(s.blurb)+'</p><span class="demo-tag">'+esc(s.tag)+'</span></button>';
+    });
+    h += '</div>';
+    root.innerHTML = h;
+    root.querySelectorAll('[data-pick]').forEach(function(b){
+      b.addEventListener('click', function(){ start(+b.getAttribute('data-pick')); });
+    });
+  }
+
+  function start(i){
+    sc = SCENARIOS[i]; tabIdx = 0; vals = {}; tried = {};
+    ORDER.forEach(function(t){ sc.tabs[t].forEach(function(f){ if(f.value!==undefined) vals[f.key]=f.value; }); });
+    renderTab();
+    window.scrollTo({top:0});
+  }
+
+  function fieldInput(f){
+    var v = vals[f.key];
+    var dis = (f.kind==='auto' || f.kind==='later') ? ' disabled' : '';
+    var id = 'demo-f-'+f.key;
+    if(f.type==='check'){
+      return '<div class="demo-check"><input type="checkbox" id="'+id+'" data-k="'+f.key+'"'+(v?' checked':'')+dis+'><span>Ready For Active Loan Pipeline</span></div>';
+    }
+    if(f.type==='select' || f.type==='stage'){
+      var opts = f.type==='stage' ? (STAGES[vals.pipeline]||[]) : OPT[f.opts];
+      var h = '<select id="'+id+'" data-k="'+f.key+'"'+dis+'><option value="">'+(f.type==='stage' && !vals.pipeline ? 'Pick a pipeline first' : 'Select…')+'</option>';
+      opts.forEach(function(o){
+        var label = (f.display && o===f.value) ? f.display : o;
+        h += '<option value="'+esc(o)+'"'+(o===v?' selected':'')+'>'+esc(label)+'</option>';
+      });
+      return h+'</select>';
+    }
+    if(f.type==='date') return '<input type="date" id="'+id+'" data-k="'+f.key+'" value="'+esc(v||'')+'"'+dis+'>';
+    var ph = f.kind==='later' ? 'Fill in later' : '';
+    return '<input type="text" id="'+id+'" data-k="'+f.key+'" value="'+esc(v||'')+'" placeholder="'+ph+'" autocomplete="off"'+dis+'>';
+  }
+
+  function fieldHtml(f){
+    var cls = 'demo-field f-'+f.kind;
+    if(f.kind==='todo' && tried[f.key]) cls += isOk(f) ? ' ok' : ' bad';
+    var h = '<div class="'+cls+'" data-field="'+f.key+'"><label for="demo-f-'+f.key+'"><span>'+esc(f.label)+'</span>'+(BADGE[f.kind]?'<span class="demo-badge">'+(f.kind==='todo' && tried[f.key] && isOk(f) ? 'Done' : BADGE[f.kind])+'</span>':'')+'</label>';
+    h += fieldInput(f);
+    if(f.kind==='todo' && tried[f.key] && !isOk(f) && f.err) h += '<p class="demo-err">'+esc(f.err)+'</p>';
+    else if(f.hint) h += '<p class="demo-hint">'+esc(f.hint)+'</p>';
+    return h+'</div>';
+  }
+
+  function sideHtml(){
+    var total=0, done=0;
+    ORDER.forEach(function(t){ todos(t).forEach(function(f){ total++; if(isOk(f)) done++; }); });
+    var h = '<aside class="demo-side"><h4>Card checklist</h4><div style="font-size:12.5px;color:var(--ink-soft);">'+done+' of '+total+' fields done</div><div class="demo-progress"><span style="width:'+(total?Math.round(done/total*100):0)+'%"></span></div><ol class="demo-steps">';
+    ORDER.forEach(function(t,i){
+      var c = i<tabIdx ? 'done' : (i===tabIdx ? 'current' : '');
+      h += '<li class="'+c+'">'+TAB_NAMES[t];
+      if(i===tabIdx){
+        var td = todos(t);
+        h += '<ul>' + (td.length ? td.map(function(f){ return '<li class="'+(isOk(f)?'ok':'')+'">'+esc(f.label)+'</li>'; }).join('') : '<li class="ok">Nothing to fill in here</li>') + '</ul>';
+      }
+      h += '</li>';
+    });
+    return h+'</ol></aside>';
+  }
+
+  function renderTab(){
+    var t = ORDER[tabIdx];
+    var h = '<div class="demo-wrap"><div>';
+    h += '<div class="demo-story"><div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:4px;">'+esc(sc.title)+' · You are '+esc(sc.you)+'</div>'+sc.story+'</div>';
+    h += '<div class="demo-legend"><span style="background:#F6E2A6;color:#7A5A12;">Fill in</span><span style="background:rgba(46,140,87,0.15);color:#1F6B43;">Filled automatically</span><span style="background:rgba(24,84,168,0.1);color:var(--blue);">If you know it</span><span style="background:var(--silver-light);color:var(--ink-soft);">Later</span></div>';
+    h += '<div class="demo-card"><div class="demo-tabs" role="tablist">';
+    ORDER.forEach(function(x,i){ h += '<span class="demo-tab'+(i===tabIdx?' current':'')+(i<tabIdx?' done':'')+'" role="tab" aria-selected="'+(i===tabIdx)+'">'+TAB_NAMES[x]+'</span>'; });
+    h += '</div><div class="demo-body"><p class="demo-tabnote">'+esc(TAB_NOTES[t])+'</p><div class="demo-fields">';
+    var order = {todo:0, auto:1, optional:2, later:3, na:4};
+    sc.tabs[t].slice().sort(function(a,b){ return order[a.kind]-order[b.kind]; }).forEach(function(f){ h += fieldHtml(f); });
+    h += '</div></div><div class="demo-actions"><div style="display:flex;gap:8px;flex-wrap:wrap;">';
+    h += '<button type="button" class="demo-btn ghost" data-act="restart">Start over</button>';
+    if(tabIdx>0) h += '<button type="button" class="demo-btn ghost" data-act="back">← Back</button>';
+    h += '</div><div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><span class="demo-msg" id="demo-msg"></span><button type="button" class="demo-btn" data-act="next">Update'+(tabIdx<ORDER.length-1?' &amp; next tab →':' &amp; finish')+'</button></div></div></div></div>';
+    h += sideHtml() + '</div>';
+    root.innerHTML = h;
+    bind();
+  }
+
+  function refreshSide(){
+    var side = root.querySelector('.demo-side');
+    if(side){ var d=document.createElement('div'); d.innerHTML=sideHtml(); side.replaceWith(d.firstChild); }
+  }
+
+  function bind(){
+    root.querySelectorAll('[data-k]').forEach(function(el){
+      var ev = (el.tagName==='SELECT' || el.type==='checkbox' || el.type==='date') ? 'change' : 'input';
+      el.addEventListener(ev, function(){
+        var k = el.getAttribute('data-k');
+        vals[k] = el.type==='checkbox' ? el.checked : el.value;
+        if(el.type==='checkbox') tried[k]=true;
+        if(k==='pipeline'){ vals.stage=''; var pos=window.scrollY; renderTab(); window.scrollTo({top:pos}); return; }
+        var f = sc.tabs[ORDER[tabIdx]].filter(function(x){return x.key===k;})[0];
+        var box = root.querySelector('[data-field="'+k+'"]');
+        if(f && f.kind==='todo' && box){
+          if(isOk(f)){ tried[k]=true; box.classList.add('ok'); box.classList.remove('bad'); var b=box.querySelector('.demo-badge'); if(b) b.textContent='Done'; var e=box.querySelector('.demo-err'); if(e){ e.outerHTML = f.hint ? '<p class="demo-hint">'+esc(f.hint)+'</p>' : ''; } }
+          else { box.classList.remove('ok'); var b2=box.querySelector('.demo-badge'); if(b2 && !box.classList.contains('bad')) b2.textContent='Fill in'; }
+        }
+        refreshSide();
+      });
+    });
+    root.querySelectorAll('[data-act]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var a = b.getAttribute('data-act');
+        if(a==='restart'){ renderPick(); window.scrollTo({top:0}); return; }
+        if(a==='back'){ tabIdx--; renderTab(); window.scrollTo({top:0}); return; }
+        var td = todos(ORDER[tabIdx]);
+        td.forEach(function(f){ tried[f.key]=true; });
+        var bad = td.filter(function(f){ return !isOk(f); });
+        if(bad.length){
+          var pos=window.scrollY; renderTab(); window.scrollTo({top:pos});
+          var m=document.getElementById('demo-msg'); if(m) m.textContent = bad.length+' field'+(bad.length>1?'s':'')+' still need'+(bad.length>1?'':'s')+' fixing.';
+          var first = root.querySelector('.f-todo.bad input, .f-todo.bad select'); if(first) first.focus();
+          return;
+        }
+        if(tabIdx < ORDER.length-1){ tabIdx++; renderTab(); window.scrollTo({top:0}); }
+        else renderDone();
+      });
+    });
+  }
+
+  function renderDone(){
+    var h = '<div class="demo-card"><div class="demo-done"><div class="demo-big">✅</div><h2>Card complete</h2>';
+    h += '<p>You filled in every field this story gave you. In the CRM, remember to click <strong>Update</strong> on each tab, and come back to fill in the fields marked <strong>Later</strong> as the card moves forward.</p>';
+    h += '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;"><button type="button" class="demo-btn" data-act="again">Practice another scenario</button><button type="button" class="demo-btn ghost" onclick="showScreen(\'eam\')">Open the EAM/LO Checklist</button></div></div></div>';
+    root.innerHTML = h;
+    root.querySelector('[data-act="again"]').addEventListener('click', function(){ renderPick(); window.scrollTo({top:0}); });
+    window.scrollTo({top:0});
+  }
+
+  root = document.getElementById('demo-root');
+  if(root) renderPick();
+})();
 </script>
 
 </body>
