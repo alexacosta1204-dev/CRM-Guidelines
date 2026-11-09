@@ -811,6 +811,7 @@
           <ul>
             <li>The card is created automatically. Its name ends in <em>"- 10Yi Website"</em>.</li>
             <li>Source is filled in automatically as <strong>10Yi Site</strong>.</li>
+            <li>The card is assigned to <strong>Leo Gonzalez</strong> automatically. Leo takes in website leads.</li>
             <li>Call the client within 24 hours and book the 20-minute intro.</li>
           </ul>
         </div>
@@ -1665,7 +1666,7 @@
     {
       id:'website', icon:'W', title:'10Yi website form', tag:'10Yi',
       blurb:'The client filled out the form on the 10Yi website.',
-      you:'Javier, the EAM',
+      you:'Leo, the EAM',
       story:'<strong>Ana Torres</strong> filled out the form on the <strong>10Yi website</strong> last night. You’re picking up the lead and you called her today. She hasn’t booked her 20-minute intro yet. She wants to buy a <strong>condo to rent out</strong>.',
       tabs:{
         details:[
@@ -1676,16 +1677,14 @@
           F('pipeline','Pipeline','select','auto',{opts:'pipeline',value:'10Yi Buying Power'}),
           F('stage','Stage','stage','auto',{value:'1ST Contact 24Hrs',hint:'She hasn’t booked yet, so the card stays here.'}),
           F('status','Status','select','auto',{opts:'status',value:'Open'}),
-          F('owner','Owner','text','todo',{match:['javier'],
-            hint:'Website leads come in with no owner. Set it right away, or the CRM sends an alert.',
-            err:'You’re taking this lead. Put your name (Javier).'}),
+          F('owner','Owner','text','auto',{value:'Leonardo Gonzalez',hint:'Website leads are assigned to Leo automatically.'}),
           F('source','Source','select','auto',{opts:'source',value:'10Yi Site',hint:'Website leads are always 10Yi Site. Leave it as is.'}),
           F('sourceDetail','Source Detail','text','na'),
           F('oppType','Opportunity Type','select','todo',{opts:'oppType',expect:'New Business',err:'She’s a new client: New Business.'}),
           F('value','Value','text','optional')
         ],
         team:[
-          F('eam','Equity Asset Manager (EAM)','text','todo',{match:['javier'],hint:'You’re her EAM.',err:'Put your name (Javier).'})
+          F('eam','Equity Asset Manager (EAM)','text','todo',{match:['leo','leonardo'],hint:'You’re her EAM.',err:'Put your name (Leonardo Gonzalez).'})
         ].concat(laterTeam()).concat([
           F('bdo','Business Developer (BDO)','text','na',{hint:'No BDO in this story.'}),
           F('realtor','Realtor','text','na'),
